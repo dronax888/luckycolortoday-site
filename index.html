@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lucky Color Today</title>
+<meta name="description" content="Your lucky color of the day, lucky number and daily horoscope for all 12 zodiac signs. Find your lucky color by birthday, learn color meanings and palm reading basics. New every day.">
+<meta property="og:title" content="Lucky Color Today: your lucky color, number and horoscope">
+<meta property="og:description" content="A new lucky color every day, personalised for your zodiac sign and birthday.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://luckycolortoday.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2748%27 fill=%27%230D0A1C%27 stroke=%27%23E6BE6A%27 stroke-width=%274%27/%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2722%27 fill=%27%23C8233B%27/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0D0A1C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Lucky Color Today","url":"https://luckycolortoday.com/","sameAs":["https://www.instagram.com/luckycolortoday/","https://www.pinterest.com/luckycolortoday/","https://www.facebook.com/luckycolortodayofficial"]}</script>
+<style>
+/* Layout idea: a night-sky observatory. Deep ink background, one glowing orb that takes on the day's lucky color, gold for structure, generous reading type. */
+:root{
+  --ink:#0D0A1C;
+  --ink-2:#151129;
+  --ink-3:#1F1A3B;
+  --line:rgba(244,239,228,.13);
+  --text:#F4EFE4;
+  --muted:#BDB5D2;
+  --gold:#E6BE6A;
+  --gold-deep:#B98E3A;
+  --plum:#2B0B25;
+  --today:#8A3FD1;
+  --today-soft:rgba(138,63,209,.28);
+  --display:"Bodoni Moda","Didot","Bodoni 72","Times New Roman",serif;
+  --body:"Figtree","Segoe UI",system-ui,-apple-system,sans-serif;
+  --r:18px;
+  --wrap:1180px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--ink);color:var(--text);font-family:var(--body);font-size:18px;line-height:1.65;overflow-x:hidden}
+img,svg,canvas{max-width:100%;display:block}
+a{color:var(--gold)}
+a:hover{color:#F3D58F}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(2.1rem,4.4vw,3.3rem)}
+h3{font-size:1.45rem}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+.eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.lead{font-size:1.15rem;color:var(--muted);max-width:60ch}
+.btn{display:inline-flex;align-items:center;gap:.55em;padding:.85em 1.4em;border-radius:999px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--body);transition:transform .15s ease,background .2s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:var(--gold);color:#1A1205}
+.btn-gold:hover{background:#F0CD84;color:#1A1205}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--text)}
+.btn svg{width:18px;height:18px}
+section{padding:clamp(64px,9vw,112px) 0;position:relative}
+.sec-head{display:grid;gap:14px;margin-bottom:40px;max-width:760px}
+
+/* header */
+.top{position:sticky;top:0;z-index:40;background:rgba(13,10,28,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+.brand svg{width:40px;height:40px}
+.brand b{font-family:var(--display);font-size:1.32rem;font-weight:600;letter-spacing:.01em}
+.nav{display:flex;gap:4px;margin-left:auto;align-items:center}
+.nav a{color:var(--muted);text-decoration:none;font-size:.95rem;font-weight:500;padding:8px 12px;border-radius:999px}
+.nav a:hover{color:var(--text);background:rgba(244,239,228,.06)}
+.nav .btn{margin-left:8px;padding:.6em 1.1em;font-size:.92rem}
+.nav a.btn-gold,.nav a.btn-gold:hover{color:#1A1205;background:var(--gold)}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--line);color:var(--text);border-radius:12px;padding:8px 12px;font:600 .9rem var(--body);cursor:pointer}
+@media (max-width:960px){
+  .menu-btn{display:inline-flex}
+  .nav{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--ink-2);border-bottom:1px solid var(--line);padding:12px 18px 20px;display:none}
+  .nav.open{display:flex}
+  .nav a{padding:12px}
+  .nav .btn{margin:8px 0 0;justify-content:center}
+}
+
+/* hero */
+.hero{padding:clamp(40px,6vw,80px) 0 clamp(48px,7vw,88px);overflow:hidden}
+#sky{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 78% 40%,var(--today-soft),transparent 70%);z-index:0;pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(2.7rem,6.4vw,5.2rem);margin:16px 0 20px}
+.hero h1 em{font-style:italic;color:color-mix(in srgb,var(--today) 58%,#fff)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:28px 0 30px;max-width:560px}
+.stat{background:rgba(244,239,228,.04);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.stat small{display:block;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.stat strong{display:block;font-family:var(--display);font-size:1.7rem;font-weight:600;line-height:1.2;margin-top:4px;font-variant-numeric:tabular-nums}
+.stat strong.sm{font-family:var(--body);font-size:1.08rem;font-weight:600;padding-top:8px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.orb-stage{position:relative;display:grid;place-items:center;min-height:420px}
+.orb{width:min(340px,70vw);aspect-ratio:1;border-radius:50%;position:relative;
+  background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.55),rgba(255,255,255,0) 22%),radial-gradient(circle at 50% 50%,var(--today) 0%,color-mix(in srgb,var(--today) 70%,#000) 72%,color-mix(in srgb,var(--today) 40%,#000) 100%);
+  box-shadow:0 0 80px 10px var(--today-soft),0 0 0 1px rgba(230,190,106,.55),inset -30px -40px 80px rgba(0,0,0,.35);
+  animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.ring{position:absolute;width:min(450px,92vw);aspect-ratio:1;border-radius:50%;border:1px dashed rgba(230,190,106,.35);animation:spin 80s linear infinite}
+.ring::before,.ring::after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:var(--gold);top:50%;left:-6px;box-shadow:0 0 14px var(--gold)}
+.ring::after{left:auto;right:-6px;top:20%;width:8px;height:8px;background:#fff}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orb-label{position:absolute;bottom:4px;left:50%;transform:translateX(-50%);background:rgba(13,10,28,.85);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:.92rem;white-space:nowrap}
+@media (max-width:520px){.orb-label{white-space:normal;width:90%;text-align:center;border-radius:16px}.orb-stage{min-height:380px}}
+.orb-label b{color:var(--gold)}
+.copy-note{font-size:.9rem;color:var(--muted);margin-top:14px;min-height:1.4em}
+
+/* week strip */
+.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin-top:8px}
+@media (max-width:760px){.week{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}.day{flex:0 0 132px;scroll-snap-align:start}}
+.day{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--ink-2);display:grid;gap:8px}
+.day.is-today{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+.day .sw{height:56px;border-radius:10px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.day b{font-size:.95rem}
+.day span{font-size:.82rem;color:var(--muted);line-height:1.35}
+.week-band{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:44px 0}
+.week-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px;margin-bottom:20px}
+.week-head h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+
+/* zodiac */
+.signs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+@media (max-width:900px){.signs{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:480px){.signs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.sign{background:var(--ink-2);border:1px solid var(--line);color:var(--text);border-radius:14px;padding:14px 8px;cursor:pointer;display:grid;justify-items:center;gap:2px;font-family:var(--body)}
+.sign:hover{border-color:rgba(230,190,106,.6)}
+.sign[aria-pressed="true"]{border-color:var(--gold);background:var(--ink-3)}
+.sign .g{font-size:1.7rem;line-height:1.1;color:var(--gold);font-family:"Segoe UI Symbol","Noto Sans Symbols 2","Apple Symbols",var(--body)}
+.sign b{font-size:.95rem}
+.sign small{font-size:.74rem;color:var(--muted)}
+.reading{margin-top:22px;display:grid;grid-template-columns:300px 1fr;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--ink-2)}
+@media (max-width:820px){.reading{grid-template-columns:1fr}}
+.reading-color{padding:28px;display:grid;align-content:space-between;gap:24px;min-height:300px;color:#fff;position:relative}
+.reading-color .big{font-family:var(--display);font-size:2.4rem;line-height:1.05}
+.reading-color .tag{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.reading-color .meta{display:grid;gap:4px;font-size:.98rem}
+.reading-body{padding:28px clamp(20px,3vw,36px);display:grid;gap:18px}
+.reading-body h3{font-size:1.8rem}
+.stars{color:var(--gold);letter-spacing:2px;font-size:1.1rem}
+.rows{display:grid;gap:14px}
+.row{display:grid;grid-template-columns:110px 1fr;gap:14px;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:480px){.row{grid-template-columns:1fr;gap:4px}}
+.row dt{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600;padding-top:3px}
+.row dd{margin:0;max-width:62ch}
+.inline-cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding-top:6px}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1fr 1.1fr;gap:24px;align-items:stretch}
+@media (max-width:860px){.calc{grid-template-columns:1fr}}
+.panel{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,3vw,34px)}
+label{font-weight:600;display:block;margin-bottom:8px}
+input[type="date"],input[type="email"]{width:100%;font:500 1.05rem var(--body);color:var(--text);background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color-scheme:dark}
+input:focus{outline:2px solid var(--gold);outline-offset:1px}
+.math{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.98rem;margin-top:16px;background:var(--ink);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;overflow-wrap:anywhere}
+.result{display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:center}
+@media (max-width:520px){.result{grid-template-columns:1fr}}
+.result .disc{width:150px;aspect-ratio:1;border-radius:50%;box-shadow:0 0 50px rgba(0,0,0,.3),0 0 0 1px rgba(230,190,106,.6),inset -14px -18px 40px rgba(0,0,0,.3)}
+.result h3{font-size:2rem;margin:6px 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-size:.85rem;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--muted)}
+
+/* colors */
+.swatches{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.swatch{display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;border:1px solid var(--line);background:var(--ink-2);color:var(--text);cursor:pointer;font:600 .95rem var(--body)}
+.swatch i{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.swatch[aria-pressed="true"]{border-color:var(--gold);background:var(--ink-3)}
+.color-card{display:grid;grid-template-columns:1fr 1.4fr;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--ink-2)}
+@media (max-width:820px){.color-card{grid-template-columns:1fr}}
+.color-card .face{min-height:260px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.color-card .face h3{font-size:2.6rem}
+.color-card .info{padding:28px clamp(20px,3vw,36px);display:grid;gap:16px}
+.uses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:560px){.uses{grid-template-columns:1fr}}
+.use{background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:14px}
+.use small{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.use p{font-size:.98rem;margin-top:4px}
+
+/* palm */
+.palm{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:center}
+@media (max-width:860px){.palm{grid-template-columns:1fr}}
+.hand{background:radial-gradient(70% 60% at 50% 55%,rgba(230,190,106,.10),transparent 70%);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.hand svg{width:100%;height:auto;max-height:520px;margin:0 auto}
+.pline{fill:none;stroke-width:7;stroke-linecap:round;cursor:pointer;transition:stroke-width .2s}
+.pline:hover,.pline.on{stroke-width:11}
+.line-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.line-tab{border:1px solid var(--line);background:var(--ink-2);color:var(--text);border-radius:999px;padding:8px 16px;font:600 .95rem var(--body);cursor:pointer;display:flex;align-items:center;gap:8px}
+.line-tab i{width:12px;height:12px;border-radius:50%}
+.line-tab[aria-pressed="true"]{border-color:var(--gold);background:var(--ink-3)}
+.line-info{display:grid;gap:12px}
+.line-info h3{font-size:2rem}
+.signs-list{margin:0;padding-left:1.1em;display:grid;gap:6px;color:var(--muted)}
+.signs-list b{color:var(--text)}
+.waitlist{margin-top:26px;border:1px solid rgba(230,190,106,.45);border-radius:var(--r);padding:20px 22px;background:linear-gradient(135deg,rgba(230,190,106,.10),transparent)}
+
+/* journal */
+.journal-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:20px}
+@media (max-width:900px){.journal-grid{grid-template-columns:1fr}}
+.post{display:grid;text-decoration:none;color:var(--text);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--ink-2);transition:border-color .2s, transform .2s}
+.post:hover{border-color:rgba(230,190,106,.6);color:var(--text);transform:translateY(-2px)}
+.post .art{height:180px;position:relative;overflow:hidden}
+.post.feature .art{height:280px}
+.post .txt{padding:20px 22px 24px;display:grid;gap:8px}
+.post .txt small{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.post .txt h3{font-size:1.5rem}
+.post.feature .txt h3{font-size:2.1rem}
+.post .txt p{color:var(--muted);font-size:1rem}
+.side-posts{display:grid;gap:14px}
+.mini{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center;text-decoration:none;color:var(--text);padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--ink-2)}
+.mini:hover{border-color:rgba(230,190,106,.6);color:var(--text)}
+.mini i{width:72px;height:72px;border-radius:12px}
+.mini b{display:block;font-size:1rem;line-height:1.35}
+.mini small{color:var(--muted);font-size:.85rem}
+.guides{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:20px}
+@media (max-width:900px){.guides{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.guides{grid-template-columns:1fr}}
+
+/* reader */
+#reader{position:fixed;inset:0;z-index:60;background:var(--ink);overflow-y:auto;display:none}
+#reader.open{display:block}
+.reader-bar{position:sticky;top:0;background:rgba(13,10,28,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:2}
+.reader-bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.reader-hero{height:clamp(200px,32vw,340px);position:relative}
+.reader-body{max-width:720px;margin:0 auto;padding:40px clamp(18px,4vw,24px) 80px}
+.reader-body .eyebrow{display:block;margin-bottom:12px}
+.reader-body h1{font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:16px}
+.reader-body .by{color:var(--muted);font-size:.95rem;margin-bottom:30px}
+.prose{font-size:1.13rem;line-height:1.8}
+.prose p{margin:0 0 1.15em}
+.prose h2{font-size:1.9rem;margin:1.6em 0 .55em}
+.prose ul,.prose ol{padding-left:1.2em;margin:0 0 1.2em}
+.prose li{margin:.35em 0}
+.prose strong{color:#fff}
+.prose table{width:100%;border-collapse:collapse;font-size:1rem;margin:0 0 1.4em}
+.prose td,.prose th{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:top}
+.prose th{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.tw{overflow-x:auto}
+.dot{display:inline-block;width:.85em;height:.85em;border-radius:50%;vertical-align:-.08em;margin-right:.4em;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}
+.end-cta{margin-top:40px;border:1px solid rgba(230,190,106,.45);border-radius:var(--r);padding:24px;display:grid;gap:14px;background:linear-gradient(135deg,rgba(230,190,106,.10),transparent)}
+
+/* follow */
+.follow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.follow{grid-template-columns:1fr}}
+.social{border:1px solid var(--line);border-radius:var(--r);padding:28px;background:var(--ink-2);display:grid;gap:14px;align-content:start}
+.social .ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--ink-3);border:1px solid var(--line);color:var(--gold)}
+.social .ico svg{width:26px;height:26px}
+.social h3{font-size:1.7rem}
+.social .handle{color:var(--gold);font-weight:600;font-size:1rem}
+.social ul{margin:0;padding-left:1.1em;color:var(--muted);display:grid;gap:4px;font-size:1rem}
+.social .btn{justify-self:start;margin-top:6px}
+
+/* newsletter */
+.news{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center;border:1px solid var(--line);border-radius:24px;padding:clamp(24px,4vw,48px);background:radial-gradient(80% 120% at 0% 0%,var(--today-soft),transparent 60%),var(--ink-2)}
+@media (max-width:860px){.news{grid-template-columns:1fr}}
+.news form{display:grid;gap:12px}
+.form-row{display:flex;gap:10px;flex-wrap:wrap}
+.form-row input{flex:1 1 220px}
+.form-msg{font-size:.98rem;color:var(--muted);min-height:1.5em}
+.form-msg b{color:var(--text)}
+
+/* sister brand */
+.sister{display:grid;grid-template-columns:1fr 1fr;border-radius:24px;overflow:hidden;border:1px solid rgba(240,170,210,.25)}
+@media (max-width:860px){.sister{grid-template-columns:1fr}}
+.sister .l{background:linear-gradient(160deg,#3A0F32,var(--plum) 60%);padding:clamp(26px,4vw,48px);display:grid;gap:16px;align-content:center}
+.sister .l h2{color:#FCEFF6}
+.sister .l p{color:#E9C9DA;max-width:52ch}
+.sister .r{background:#F7EEF2;color:#2B0B25;padding:clamp(26px,4vw,48px);display:grid;gap:14px;align-content:center}
+.sister .r h3{font-size:1.6rem;color:#2B0B25}
+.pal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:420px){.pal{grid-template-columns:1fr}}
+.pal a{display:flex;align-items:center;gap:10px;text-decoration:none;color:#2B0B25;background:#fff;border:1px solid #E6D3DD;border-radius:999px;padding:8px 14px;font-weight:600;font-size:.95rem}
+.pal a:hover{border-color:#B0457E;color:#2B0B25}
+.pal i{width:22px;height:22px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.btn-plum{background:#C2185B;color:#fff}
+.btn-plum:hover{background:#D81B60;color:#fff}
+
+/* faq */
+.faq{display:grid;gap:12px;max-width:860px}
+details{border:1px solid var(--line);border-radius:14px;background:var(--ink-2);padding:4px 20px}
+summary{cursor:pointer;font-weight:600;padding:16px 0;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{padding:0 0 18px;color:var(--muted);max-width:70ch}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:56px 0 40px;background:#090715}
+.foot{display:grid;grid-template-columns:1.4fr repeat(3,minmax(0,1fr));gap:28px}
+@media (max-width:860px){.foot{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.foot{grid-template-columns:1fr}}
+.foot h4{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a{color:var(--muted);text-decoration:none}
+.foot a:hover{color:var(--text)}
+.fine{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+/* floating follow */
+.float{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;align-items:center;gap:10px;background:var(--ink-3);border:1px solid rgba(230,190,106,.5);border-radius:999px;padding:8px 8px 8px 16px;box-shadow:0 10px 30px rgba(0,0,0,.4);font-size:.92rem;max-width:calc(100vw - 36px)}
+.float a{padding:.5em 1em;font-size:.88rem}
+.float button{background:none;border:0;color:var(--muted);font-size:1.2rem;cursor:pointer;padding:4px 8px;line-height:1}
+.float.hide{display:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#today" aria-label="Lucky Color Today home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><g id="lg"></g></svg>
+      <b>Lucky Color Today</b>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#today">Today</a>
+      <a href="#zodiac">Zodiac</a>
+      <a href="#birthday">Birthday color</a>
+      <a href="#colors">Color meanings</a>
+      <a href="#palm">Palm reading</a>
+      <a href="#journal">Journal</a>
+      <a class="btn btn-gold" href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener">Follow us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="today" aria-labelledby="h-today">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" id="todayDate">Saturday, November 7</span>
+      <h1 id="h-today">Today's lucky color is <em id="todayName">Royal Purple</em></h1>
+      <p class="lead" id="todayLead">Saturday belongs to Saturn, the planet of patience and lasting results. Wear it, carry it or keep it close today.</p>
+      <div class="stats">
+        <div class="stat"><small>Lucky number</small><strong id="todayNum">8</strong></div>
+        <div class="stat"><small>Ruling planet</small><strong id="todayPlanet">Saturn</strong></div>
+        <div class="stat"><small>Pairs with</small><strong class="sm" id="todayPair">Moon Silver</strong></div>
+      </div>
+      <div class="ctas">
+        <a class="btn btn-gold" href="#zodiac">Get my sign's color</a>
+        <button class="btn btn-ghost" id="copyBtn" type="button">Copy today's color</button>
+      </div>
+      <p class="copy-note" id="copyNote" aria-live="polite"></p>
+    </div>
+    <div class="orb-stage">
+      <div class="ring" aria-hidden="true"></div>
+      <div class="orb" role="img" id="orb" aria-label="Today's lucky color"></div>
+      <div class="orb-label">New color every midnight. <b>Daily</b> on <a href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener">Instagram</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="week-band" aria-labelledby="h-week">
+  <div class="wrap">
+    <div class="week-head">
+      <div>
+        <span class="eyebrow">The week ahead</span>
+        <h2 id="h-week">Your next seven lucky colors</h2>
+      </div>
+      <a href="#read-planet-days">Why each day has its own color</a>
+    </div>
+    <div class="week" id="week"></div>
+  </div>
+</div>
+
+<section id="zodiac" aria-labelledby="h-zodiac">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Daily horoscope</span>
+      <h2 id="h-zodiac">Your sign's lucky color and reading for today</h2>
+      <p class="lead">Pick your zodiac sign. Your color, number and reading change every day, so come back tomorrow.</p>
+    </div>
+    <div class="signs" id="signs" role="group" aria-label="Choose your zodiac sign"></div>
+    <div class="reading" id="reading" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="birthday" aria-labelledby="h-bday" style="background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Numerology</span>
+      <h2 id="h-bday">Your lifelong lucky color, from your birthday</h2>
+      <p class="lead">Your daily color changes, but your birth color stays with you. Enter your date of birth and we'll work out your life path number.</p>
+    </div>
+    <div class="calc">
+      <div class="panel" style="background:var(--ink)">
+        <label for="dob">Your date of birth</label>
+        <input type="date" id="dob" value="1995-03-14" min="1900-01-01" max="2026-12-31">
+        <div class="math" id="math"></div>
+        <p style="margin-top:16px;color:var(--muted);font-size:.98rem">We add up every digit of your birth date and reduce it to one number, the way numerologists have done for centuries. 11, 22 and 33 are kept as master numbers.</p>
+      </div>
+      <div class="panel" style="background:var(--ink)" id="bdayResult" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="colors" aria-labelledby="h-colors">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Color meanings</span>
+      <h2 id="h-colors">What each color brings you</h2>
+      <p class="lead">Tap a color to see what it's said to attract in love, money and work, and when to wear it.</p>
+    </div>
+    <div class="swatches" id="swatches" role="group" aria-label="Choose a color"></div>
+    <div class="color-card" id="colorCard" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="palm" aria-labelledby="h-palm" style="background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap palm">
+    <div class="hand">
+      <svg viewBox="0 0 400 500" role="img" aria-labelledby="handTitle">
+        <title id="handTitle">An open palm with the heart, head, life and fate lines marked</title>
+        <defs>
+          <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2350"/><stop offset="1" stop-color="#1B1638"/></linearGradient>
+        </defs>
+        <g fill="url(#skin)" stroke="rgba(230,190,106,.55)" stroke-width="2">
+          <rect x="112" y="40" width="44" height="170" rx="22"/>
+          <rect x="164" y="18" width="46" height="190" rx="23"/>
+          <rect x="218" y="30" width="44" height="180" rx="22"/>
+          <rect x="270" y="70" width="40" height="150" rx="20"/>
+          <rect x="40" y="210" width="44" height="150" rx="22" transform="rotate(-38 62 285)"/>
+          <rect x="100" y="170" width="214" height="270" rx="70"/>
+        </g>
+        <path class="pline" data-line="heart" d="M300 238 C 260 222, 205 222, 160 250 C 145 258, 134 250, 128 236" stroke="#E77FA6"/>
+        <path class="pline" data-line="head" d="M118 286 C 160 270, 230 282, 292 318" stroke="#7DB7E8"/>
+        <path class="pline" data-line="life" d="M126 270 C 150 300, 160 360, 196 428" stroke="#7FD1AE"/>
+        <path class="pline" data-line="fate" d="M212 430 C 210 380, 208 320, 212 252" stroke="#E6BE6A"/>
+      </svg>
+    </div>
+    <div>
+      <span class="eyebrow">Palm reading basics</span>
+      <h2 id="h-palm">The four lines everyone has</h2>
+      <p class="lead" style="margin-top:14px">Tap a line on the hand, or use the buttons. Read your dominant hand for the present and your other hand for what you were born with.</p>
+      <div class="line-tabs" id="lineTabs" role="group" aria-label="Choose a palm line"></div>
+      <div class="line-info" id="lineInfo" aria-live="polite"></div>
+      <div class="waitlist">
+        <b>AI palm reading is coming.</b>
+        <p style="color:var(--muted);margin-top:6px;font-size:1rem">Upload a photo of your palm and get a full reading in seconds. Want early access? Email <a href="mailto:info@luckycolortoday.com?subject=Palm%20reading%20waitlist">info@luckycolortoday.com</a> with the subject "Palm reading waitlist".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="journal" aria-labelledby="h-journal">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The Journal</span>
+      <h2 id="h-journal">A new luck report every morning</h2>
+      <p class="lead">Each day's report explains the color, the number and how every sign can use them. Below it, our guides to lucky colors, numerology and palm reading.</p>
+    </div>
+    <div class="journal-grid">
+      <div id="featurePost"></div>
+      <div class="side-posts" id="pastPosts"></div>
+    </div>
+    <div class="guides" id="guides"></div>
+  </div>
+</section>
+
+<section id="follow" aria-labelledby="h-follow" style="background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Never miss a lucky day</span>
+      <h2 id="h-follow">Follow Lucky Color Today</h2>
+      <p class="lead">Each platform gets something different. Follow where you scroll most and your lucky color will come to you.</p>
+    </div>
+    <div class="follow">
+      <article class="social">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="4"/><circle cx="12" cy="13" r="3.6"/><path d="M8 6l1.5-2h5L16 6"/></svg></div>
+        <h3>Instagram</h3>
+        <span class="handle">@luckycolortoday</span>
+        <ul><li>The lucky color of the day in our Stories</li><li>Zodiac polls and lucky number reveals</li><li>Short Reels on color meanings</li></ul>
+        <a class="btn btn-gold" href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener">Follow on Instagram</a>
+      </article>
+      <article class="social">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3a5 5 0 0 1 5 5c0 2.6-1.8 4.3-3 5.5l-.5 7.5h-3L10 13.5C8.8 12.3 7 10.6 7 8a5 5 0 0 1 5-5z"/><circle cx="12" cy="8" r="1.6"/></svg></div>
+        <h3>Pinterest</h3>
+        <span class="handle">luckycolortoday</span>
+        <ul><li>Save-worthy lucky color charts</li><li>Boards for every zodiac sign</li><li>Palm reading and color meaning guides</li></ul>
+        <a class="btn btn-gold" href="https://www.pinterest.com/luckycolortoday/" target="_blank" rel="noopener">Follow on Pinterest</a>
+      </article>
+      <article class="social">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.6-3.6 3-5.6 6-5.6s5.4 2 6 5.6"/><circle cx="17.5" cy="9" r="2.4"/><path d="M16 14.6c2.6-.3 4.6 1.4 5 4.4"/></svg></div>
+        <h3>Facebook</h3>
+        <span class="handle">Lucky Color Today</span>
+        <ul><li>The daily color and number on your feed</li><li>Share your color with family and friends</li><li>Weekly color forecast</li></ul>
+        <a class="btn btn-gold" href="https://www.facebook.com/luckycolortodayofficial" target="_blank" rel="noopener">Like our Page</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-news">
+  <div class="wrap">
+    <div class="news">
+      <div>
+        <span class="eyebrow">Daily email</span>
+        <h2 id="h-news" style="margin:12px 0 14px">Tomorrow's lucky color, in your inbox</h2>
+        <p class="lead">One short email each morning: your color, your number and one thing to try. Free, and you can leave any time.</p>
+      </div>
+      <form id="newsForm" novalidate>
+        <label for="newsEmail">Your email</label>
+        <div class="form-row">
+          <input type="email" id="newsEmail" placeholder="you@example.com" autocomplete="email" required>
+          <button class="btn btn-gold" type="submit">Join the list</button>
+        </div>
+        <p class="form-msg" id="newsMsg" aria-live="polite">No spam. Questions? Write to <a href="mailto:info@luckycolortoday.com">info@luckycolortoday.com</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="family" aria-labelledby="h-family" style="padding-top:0">
+  <div class="wrap">
+    <div class="sister">
+      <div class="l">
+        <span class="eyebrow" style="color:#F5B8D5">From our family of brands</span>
+        <h2 id="h-family">Planning a celebration? Make your lucky color the party palette.</h2>
+        <p>Our sister studio, Digipod Studio, designs editable invitations, video save-the-dates and photo slideshows for quinceañeras, sweet 16s, birthdays and weddings. Edit them in Canva, in English or Spanish, and share them the same day.</p>
+        <a class="btn btn-plum" href="https://digipodstudio.com/" target="_blank" rel="noopener" style="justify-self:start">Visit Digipod Studio</a>
+      </div>
+      <div class="r">
+        <h3>Shop invitations by your lucky color</h3>
+        <div class="pal">
+          <a href="https://digipodstudio.com/" target="_blank" rel="noopener"><i style="background:#F2A7BF"></i>Pink &amp; blush</a>
+          <a href="https://digipodstudio.com/" target="_blank" rel="noopener"><i style="background:#E5C989"></i>Champagne &amp; gold</a>
+          <a href="https://digipodstudio.com/" target="_blank" rel="noopener"><i style="background:#B79AE0"></i>Lavender &amp; purple</a>
+          <a href="https://digipodstudio.com/" target="_blank" rel="noopener"><i style="background:#7DB7E8"></i>Blue</a>
+          <a href="https://digipodstudio.com/" target="_blank" rel="noopener"><i style="background:#A31D3A"></i>Red &amp; burgundy</a>
+          <a href="https://digipodstudio.com/" target="_blank" rel="noopener"><i style="background:#8DB59A"></i>Green &amp; sage</a>
+        </div>
+        <p style="font-size:.95rem;color:#6B4A5C">Tip: a birthday girl born on a Friday? Rose pink is her lucky color.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="h-faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Questions</span>
+      <h2 id="h-faq">How Lucky Color Today works</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>How do you choose the lucky color of the day?</summary><p>Each day of the week is ruled by one of the seven classical planets, a tradition shared by Vedic astrology, Thai color customs and the names of the weekdays themselves. Each planet has its own colors and number. We rotate through that planet's shades week by week, so the same weekday never feels stale.</p></details>
+      <details><summary>Is my sign's color different from the day's color?</summary><p>Yes. Your sign's color blends the day's planet with your sign's ruling planet and element. When the day belongs to your ruling planet, the day color is doubly lucky for you.</p></details>
+      <details><summary>What's the difference between my daily color and my birthday color?</summary><p>Your birthday color comes from your life path number and never changes. Think of it as your signature color. Your daily color is the extra boost for one day.</p></details>
+      <details><summary>What time does the new color appear?</summary><p>The site updates at midnight on your own device's clock. Our Instagram Stories share it with you every day too.</p></details>
+      <details><summary>Is this scientific?</summary><p>No. Lucky colors, horoscopes and palm reading are traditions for reflection and fun, not predictions or advice. Enjoy them, and make your real decisions with care.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#today"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#lg"/></svg><b>Lucky Color Today</b></a>
+        <p style="color:var(--muted);margin-top:14px;max-width:38ch;font-size:1rem">Your lucky color, number and horoscope, new every day.</p>
+        <p style="margin-top:14px;font-size:1rem">Email: <a href="mailto:info@luckycolortoday.com">info@luckycolortoday.com</a></p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="#today">Today's color</a></li><li><a href="#zodiac">Daily horoscope</a></li><li><a href="#birthday">Birthday color</a></li><li><a href="#colors">Color meanings</a></li><li><a href="#palm">Palm reading</a></li><li><a href="#journal">Journal</a></li></ul></div>
+      <div><h4>Follow</h4><ul><li><a href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.pinterest.com/luckycolortoday/" target="_blank" rel="noopener">Pinterest</a></li><li><a href="https://www.facebook.com/luckycolortodayofficial" target="_blank" rel="noopener">Facebook</a></li></ul></div>
+      <div><h4>Our brands</h4><ul><li><a href="https://digipodstudio.com/" target="_blank" rel="noopener">Digipod Studio</a></li><li><a href="#faq">How it works</a></li></ul></div>
+    </div>
+    <div class="fine"><span>© <span id="yr">2026</span> Lucky Color Today. For entertainment and reflection only.</span><span>Made under a new color every day.</span></div>
+  </div>
+</footer>
+
+<div class="float" id="float">
+  <span>Get your lucky color daily</span>
+  <a class="btn btn-gold" href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener">Follow</a>
+  <button type="button" id="floatClose" aria-label="Hide this message">&times;</button>
+</div>
+
+<div id="reader" role="dialog" aria-modal="true" aria-labelledby="rTitle">
+  <div class="reader-bar"><div class="wrap">
+    <a class="brand" href="#journal"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#lg"/></svg><b>Lucky Color Today</b></a>
+    <a class="btn btn-ghost" href="#journal">Back to Journal</a>
+  </div></div>
+  <div class="reader-hero" id="rHero"></div>
+  <div class="reader-body">
+    <span class="eyebrow" id="rTag"></span>
+    <h1 id="rTitle"></h1>
+    <p class="by" id="rBy"></p>
+    <div class="prose" id="rBody"></div>
+    <div class="end-cta">
+      <b style="font-family:var(--display);font-size:1.5rem">Get your lucky color every day</b>
+      <p style="color:var(--muted)">We share it every day on Instagram, Pinterest and Facebook.</p>
+      <div class="ctas">
+        <a class="btn btn-gold" href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn-ghost" href="https://www.pinterest.com/luckycolortoday/" target="_blank" rel="noopener">Pinterest</a>
+        <a class="btn btn-ghost" href="https://www.facebook.com/luckycolortodayofficial" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+/* ---------- logo: bagua ring of eight trigrams around a red sun ---------- */
+(function logo(){
+  const g=document.getElementById('lg');
+  const tri=['111','110','101','100','011','010','001','000'];
+  let s='<circle cx="50" cy="50" r="48" fill="#0D0A1C" stroke="#E6BE6A" stroke-width="2"/>';
+  tri.forEach((t,i)=>{
+    let bars='';
+    [...t].forEach((b,j)=>{
+      const y=6+j*6;
+      bars+= b==='1' ? `<rect x="40" y="${y}" width="20" height="3.6" rx="1"/>` : `<rect x="40" y="${y}" width="8.5" height="3.6" rx="1"/><rect x="51.5" y="${y}" width="8.5" height="3.6" rx="1"/>`;
+    });
+    s+=`<g fill="#E6BE6A" transform="rotate(${i*45} 50 50)">${bars}</g>`;
+  });
+  s+='<circle cx="50" cy="50" r="15" fill="#C8233B"/><circle cx="45" cy="45" r="4" fill="#fff" opacity=".45"/>';
+  g.innerHTML=s;
+})();
+
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function pick(arr,seed){const n=arr.length;return arr[((Math.floor(seed)%n)+n)%n];}
+function ymd(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function dayNum(d){return Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/86400000);}
+const ANCHOR=Math.floor(Date.UTC(2026,10,7)/86400000);
+function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x;}
+function fmtLong(d){return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});}
+function fmtFull(d){return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});}
+function rgba(hex,a){const n=parseInt(hex.slice(1),16);return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`;}
+function lum(hex){const n=parseInt(hex.slice(1),16);const c=[n>>16&255,n>>8&255,n&255].map(v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*c[0]+.7152*c[1]+.0722*c[2];}
+function inkOn(hex){return lum(hex)>.42?'#1A1426':'#FFFFFF';}
+function lighten(hex){return lum(hex)<.12?'#CDA6FF':hex;}
+
+/* ---------- the planetary week ---------- */
+const DAYS=[
+ {day:'Sunday',planet:'Sun',num:1,pair:'Pearl White',vibe:'confidence, visibility and good health',
+  shades:[['Sunrise Gold','#E8A93A'],['Marigold','#F2992E'],['Amber','#D9822B'],['Honey','#E5B85C']]},
+ {day:'Monday',planet:'Moon',num:2,pair:'Sky Blue',vibe:'calm, intuition and home life',
+  shades:[['Pearl White','#EDEAE2'],['Moon Silver','#C9CDD6'],['Ivory','#F2E8D0'],['Mist Grey','#B7BCC6']]},
+ {day:'Tuesday',planet:'Mars',num:9,pair:'Sunrise Gold',vibe:'courage, energy and bold moves',
+  shades:[['Ruby Red','#C8233B'],['Coral Red','#E5533D'],['Scarlet','#D62D2D'],['Crimson','#A31D3A']]},
+ {day:'Wednesday',planet:'Mercury',num:5,pair:'Cream',vibe:'clear talks, learning and deals',
+  shades:[['Emerald Green','#1F9D6B'],['Jade','#3FAE8A'],['Mint','#7FD1AE'],['Olive','#7C8B3A']]},
+ {day:'Thursday',planet:'Jupiter',num:3,pair:'Midnight Navy',vibe:'growth, wisdom and money luck',
+  shades:[['Saffron Yellow','#F3C125'],['Lemon','#F2DC5D'],['Mustard','#D4A017'],['Butter Yellow','#F6E27F']]},
+ {day:'Friday',planet:'Venus',num:6,pair:'Pearl White',vibe:'love, beauty and friendship',
+  shades:[['Rose Pink','#E77FA6'],['Sky Blue','#7DB7E8'],['Blush Pink','#F2A7BF'],['Turquoise','#3BB8B3']]},
+ {day:'Saturday',planet:'Saturn',num:8,pair:'Moon Silver',vibe:'patience, focus and lasting results',
+  shades:[['Royal Purple','#8A3FD1'],['Midnight Navy','#23306B'],['Deep Plum','#5E2A6E'],['Charcoal','#3A3A46']]}
+];
+const PLANET_LINE={
+ Sun:'the Sun, the source of confidence and vitality',Moon:'the Moon, which rules feelings and home',Mars:'Mars, the planet of drive and courage',
+ Mercury:'Mercury, the planet of words, trade and quick thinking',Jupiter:'Jupiter, the great bringer of growth and good fortune',
+ Venus:'Venus, the planet of love, beauty and pleasure',Saturn:'Saturn, the planet of patience and lasting results'};
+function luckFor(d){
+  const info=DAYS[d.getDay()];
+  const wk=Math.floor((dayNum(d)-ANCHOR)/7);
+  const idx=((wk%4)+4)%4;
+  const [name,hex]=info.shades[idx];
+  return {...info,name,hex,date:d};
+}
+
+/* ---------- zodiac ---------- */
+const SIGNS=[
+ ['aries','Aries','♈','Mar 21 - Apr 19','Fire','Mars',[['Scarlet','#D62D2D'],['Sunrise Gold','#E8A93A'],['Coral Red','#E5533D']]],
+ ['taurus','Taurus','♉','Apr 20 - May 20','Earth','Venus',[['Emerald Green','#1F9D6B'],['Blush Pink','#F2A7BF'],['Cream','#EFE3C6']]],
+ ['gemini','Gemini','♊','May 21 - Jun 20','Air','Mercury',[['Lemon','#F2DC5D'],['Mint','#7FD1AE'],['Sky Blue','#7DB7E8']]],
+ ['cancer','Cancer','♋','Jun 21 - Jul 22','Water','Moon',[['Moon Silver','#C9CDD6'],['Pearl White','#EDEAE2'],['Sea Green','#3FAE8A']]],
+ ['leo','Leo','♌','Jul 23 - Aug 22','Fire','Sun',[['Sunrise Gold','#E8A93A'],['Marigold','#F2992E'],['Royal Purple','#8A3FD1']]],
+ ['virgo','Virgo','♍','Aug 23 - Sep 22','Earth','Mercury',[['Midnight Navy','#23306B'],['Olive','#7C8B3A'],['Sand Beige','#D8C3A0']]],
+ ['libra','Libra','♎','Sep 23 - Oct 22','Air','Venus',[['Rose Pink','#E77FA6'],['Sky Blue','#7DB7E8'],['Lavender','#B79AE0']]],
+ ['scorpio','Scorpio','♏','Oct 23 - Nov 21','Water','Mars',[['Burgundy','#7A1E3A'],['Crimson','#A31D3A'],['Charcoal','#3A3A46']]],
+ ['sagittarius','Sagittarius','♐','Nov 22 - Dec 21','Fire','Jupiter',[['Royal Purple','#8A3FD1'],['Turquoise','#3BB8B3'],['Saffron Yellow','#F3C125']]],
+ ['capricorn','Capricorn','♑','Dec 22 - Jan 19','Earth','Saturn',[['Charcoal','#3A3A46'],['Forest Green','#2F5D3A'],['Cocoa Brown','#6B4A35']]],
+ ['aquarius','Aquarius','♒','Jan 20 - Feb 18','Air','Saturn',[['Electric Blue','#2F6FE0'],['Turquoise','#3BB8B3'],['Moon Silver','#C9CDD6']]],
+ ['pisces','Pisces','♓','Feb 19 - Mar 20','Water','Jupiter',[['Sea Green','#3FAE8A'],['Lavender','#B79AE0'],['Aqua','#5CC8D8']]]
+].map(a=>({id:a[0],name:a[1],glyph:a[2]+'︎',dates:a[3],element:a[4],ruler:a[5],palette:a[6]}));
+
+const MOOD=[
+ 'You feel steadier than usual. Use that calm to finish something you started last week.',
+ 'Your energy rises after midday. Save the hardest task for the afternoon.',
+ 'Small wins add up today. Tick off three easy things early and the rest follows.',
+ 'Your intuition is sharp. If something feels off, take a second look before saying yes.',
+ 'A quiet morning gives way to a lively evening. Leave room in your plans.',
+ 'Today rewards patience. The answer you are waiting for is closer than it looks.',
+ 'You are more persuasive than you think. Speak up in the meeting or the group chat.',
+ 'Your mind is buzzing with ideas. Write them down before they slip away.',
+ 'Rest is productive today. A short walk will clear more than you expect.',
+ 'Someone notices your effort. Accept the compliment without brushing it off.'
+];
+const LOVE=[
+ 'A kind message from you lands at exactly the right moment. Send it.',
+ 'Single? A friend of a friend could spark a conversation worth having.',
+ 'Plan something simple together tonight. Simple is what you both need.',
+ 'Listen more than you talk today and you will learn something sweet.',
+ 'An old memory comes up. Share it and you will feel closer.',
+ 'Flirt a little. Wearing your color gives you an easy confidence boost.',
+ 'Clear up a small misunderstanding early before it grows.',
+ 'Your warmth draws people in today. Let them come to you.'
+];
+const MONEY=[
+ 'Review one subscription or bill. There is a saving hiding in plain sight.',
+ 'A practical idea at work deserves a proper pitch. Put numbers to it.',
+ 'Hold off on impulse buys until tomorrow. If you still want it, then go ahead.',
+ 'Good day to ask for what you are owed, politely and clearly.',
+ 'Teamwork pays off. Share credit and you gain an ally.',
+ 'Organize your desk or inbox. A tidy space brings a tidy mind for decisions.',
+ 'Learning something new today will pay you back later.',
+ 'A lucky number moment: watch for your number on receipts, times or prices.'
+];
+const TIPS=[
+ 'Wear {c} close to your skin, like a scarf, a bracelet or socks.',
+ 'Set your phone wallpaper to {c} for the day.',
+ 'Keep something {c} in your wallet or bag.',
+ 'Write your intention for today on {c} paper or in {c} ink.',
+ 'Put a {c} flower or object on your desk.',
+ 'Choose a {c} drink cup, mug or water bottle today.',
+ 'Paint one nail {c} as your secret lucky charm.',
+ 'Light a {c} candle tonight and take three slow breaths.'
+];
+function readingFor(sign,d){
+  const day=luckFor(d);
+  const s=hash(ymd(d)+sign.id);
+  const power=sign.ruler===day.planet;
+  let col;
+  if(power){col=[day.name,day.hex];}
+  else{col=pick(sign.palette,s);}
+  const num=((day.num+sign.name.length+(s%7))%9)+1;
+  const stars=power?5:3+(s%3);
+  const hourA=6+(s%6), hourB=15+((s>>>3)%6);
+  const fmtH=h=>(h%12||12)+(h<12?' AM':' PM');
+  const compat=SIGNS.filter(x=>x.element===sign.element&&x.id!==sign.id).concat(SIGNS.filter(x=>x.id!==sign.id));
+  const match=pick(compat.slice(0,4),s>>>5);
+  return {
+    sign,day,power,color:col[0],hex:col[1],num,stars,
+    hours:`${fmtH(hourA)} and ${fmtH(hourB)}`,
+    match,
+    mood:pick(MOOD,s),love:pick(LOVE,s>>>2),money:pick(MONEY,s>>>4),
+    tip:pick(TIPS,s>>>6).replace(/\{c\}/g,col[0].toLowerCase())
+  };
+}
+
+/* ---------- life path ---------- */
+const LIFE={
+ 1:['Ruby Red','#D62D2D','The Leader','Ruby','Bold starts, independence and drive. Red keeps your fire lit.'],
+ 2:['Marigold','#F2992E','The Peacemaker','Moonstone','Harmony, partnership and gentle strength. Orange warms every connection.'],
+ 3:['Saffron Yellow','#F3C125','The Creator','Citrine','Joy, words and self-expression. Yellow lets your ideas shine.'],
+ 4:['Emerald Green','#1F9D6B','The Builder','Emerald','Stability, hard work and steady growth. Green grounds your plans.'],
+ 5:['Sky Blue','#4FA3E0','The Explorer','Aquamarine','Freedom, travel and change. Blue keeps you calm while you move fast.'],
+ 6:['Indigo','#3F3FA8','The Nurturer','Sapphire','Care, family and responsibility. Indigo brings deep peace.'],
+ 7:['Violet','#8A3FD1','The Seeker','Amethyst','Wisdom, study and spirit. Violet sharpens your inner voice.'],
+ 8:['Rose Pink','#E77FA6','The Achiever','Rose quartz','Abundance, ambition and success. Rose softens power with heart.'],
+ 9:['Gold','#E6BE6A','The Humanitarian','Topaz','Compassion, endings and big-picture thinking. Gold honors your generosity.']
+};
+function lifePath(str){
+  const digits=str.replace(/\D/g,'').split('').map(Number);
+  let steps=[digits.join(' + ')+' = '+digits.reduce((a,b)=>a+b,0)];
+  let n=digits.reduce((a,b)=>a+b,0);
+  while(n>9&&![11,22,33].includes(n)){
+    const ds=String(n).split('').map(Number);n=ds.reduce((a,b)=>a+b,0);steps.push(ds.join(' + ')+' = '+n);
+  }
+  const master=[11,22,33].includes(n);
+  const base=master?String(n).split('').map(Number).reduce((a,b)=>a+b,0):n;
+  return {n,base,master,steps};
+}
+
+/* ---------- color meanings ---------- */
+const COLORS=[
+ ['Red','#C8233B','Courage and passion','Sparks attraction and confidence on a first date.','Wear it to a negotiation or a pitch you need to win.','Starts and launches. Good for a first day.','Tuesdays, big presentations, when you feel low on energy.'],
+ ['Orange','#F2992E','Warmth and enthusiasm','Makes you approachable and fun.','Encourages creative deals and teamwork.','Brainstorms and social events at work.','Weekends, parties, creative days.'],
+ ['Gold','#E6BE6A','Success and recognition','Signals generosity and lasting commitment.','The classic money color. Keep a gold item in your wallet.','Awards, interviews, asking for a raise.','Sundays, celebrations, any day you want to be noticed.'],
+ ['Yellow','#F3C125','Optimism and clear thinking','Brings lighthearted, easy conversation.','Helps you spot opportunities and learn fast.','Studying, exams, writing.','Thursdays and Wednesdays, test days, cloudy days.'],
+ ['Green','#1F9D6B','Growth and balance','Steady, trusting love that grows over time.','Associated with wealth that grows slowly and surely.','Long projects and anything that needs patience.','Wednesdays, starting a savings plan, health goals.'],
+ ['Blue','#2F6FE0','Calm and trust','Honest talks and loyal friendships.','Builds trust with clients and banks.','Calls, emails and difficult conversations.','Fridays and Mondays, stressful days, travel.'],
+ ['Purple','#8A3FD1','Wisdom and intuition','Deep, soulful connection.','Linked to old money and quiet power.','Strategy, planning and leadership.','Saturdays, meditation, important decisions.'],
+ ['Pink','#E77FA6','Love and kindness','The strongest color for romance and self-love.','Attracts gifts and favors.','Customer care, teaching and healing work.','Fridays, dates, making up after an argument.'],
+ ['White','#EDEAE2','Clarity and new beginnings','Fresh starts and honest feelings.','Clears money blocks. Good for a fresh budget.','New jobs, interviews, clean slates.','Mondays, the first day of the month, after a tough week.'],
+ ['Black','#24222B','Protection and authority','Mystery and magnetism.','Serious, focused spending. Cuts waste.','Formal meetings and setting boundaries.','Saturdays, when you need to say no, formal events.']
+];
+
+/* ---------- palm lines ---------- */
+const LINES={
+ heart:{name:'Heart line',hex:'#E77FA6',where:'The top line, running across the palm under your fingers.',about:'Shows how you love and how you handle feelings.',
+  reads:[['Ends under the index finger','You are content in love and choose partners with care.'],['Ends under the middle finger','You are guided by your own needs first. Practical in romance.'],['Long and curved','You express feelings openly and warmly.'],['Straight and short','You show love through actions more than words.']]},
+ head:{name:'Head line',hex:'#7DB7E8',where:'The middle line, starting between thumb and index finger.',about:'Shows how you think, learn and make decisions.',
+  reads:[['Long and straight','You think clearly and logically.'],['Curved or sloping','You are creative and imaginative.'],['Short','You prefer quick, practical decisions.'],['Separated from the life line','You love adventure and independence.']]},
+ life:{name:'Life line',hex:'#7FD1AE',where:'The curved line around the base of your thumb.',about:'Shows energy, vitality and big life changes. Its length does not predict how long you live.',
+  reads:[['Deep and long','You have strong stamina and steady energy.'],['Wide curve','You are outgoing and full of enthusiasm.'],['Close to the thumb','You prefer a quieter pace and recharge alone.'],['Breaks or branches','A big change of direction or a fresh start.']]},
+ fate:{name:'Fate line',hex:'#E6BE6A',where:'The vertical line running up the center of the palm. Not everyone has one.',about:'Shows career path and how much outside events shape your life.',
+  reads:[['Deep and clear','A strong sense of purpose and direction.'],['Starts at the life line','A self-made path built on your own effort.'],['Starts mid-palm','Your career takes off later in life.'],['Faint or missing','You make your own luck and change paths freely.']]}
+};
+
+/* ---------- articles ---------- */
+const GUIDES=[
+ {slug:'read-planet-days',tag:'Guide',title:'Why every day of the week has its own lucky color',hex:'#E8A93A',hex2:'#8A3FD1',
+  dek:'The seven planets behind the seven days, and the colors and numbers that go with each.',
+  body:()=>{
+   let rows=DAYS.map(d=>`<tr><td><b>${d.day}</b></td><td>${d.planet}</td><td>${d.shades.map(s=>`<span class="dot" style="background:${s[1]}"></span>${s[0]}`).join('<br>')}</td><td>${d.num}</td></tr>`).join('');
+   return `<p>Long before calendars had numbers, people named the days after the seven bright lights that moved across the sky: the Sun, the Moon, Mars, Mercury, Jupiter, Venus and Saturn. You can still hear them in the names. Sunday is the Sun's day, Monday the Moon's and Saturday Saturn's. In French and Spanish, Tuesday to Friday keep the planets' names: mardi for Mars, mercredi for Mercury, jeudi for Jupiter and vendredi for Venus.</p>
+   <p>Vedic astrology gives each planet a color, a gemstone and a number. In Thailand, people still wear the color of the day, and many know the color of the day they were born. Lucky Color Today brings these traditions together into one simple daily color.</p>
+   <h2>The planetary week</h2>
+   <div class="tw"><table><thead><tr><th>Day</th><th>Planet</th><th>Shades we rotate</th><th>Number</th></tr></thead><tbody>${rows}</tbody></table></div>
+   <h2>Why the shade changes week to week</h2>
+   <p>Wearing the exact same red every Tuesday gets dull. So each planet has four shades, and we move to the next one each week. Every shade carries the same planet's energy, so you get a fresh color with the same meaning.</p>
+   <h2>How to use it</h2>
+   <ul><li><strong>Wear it.</strong> A whole outfit, or just a scarf, tie, socks or nail polish.</li><li><strong>Carry it.</strong> A pen, keychain, phone case or a card in your wallet.</li><li><strong>See it.</strong> Make it your phone wallpaper or put a flower on your desk.</li></ul>
+   <p>The number follows the same planet. Use it when you pick a time, a seat or a quantity, and notice when it shows up during your day.</p>`;}},
+ {slug:'read-zodiac-colors',tag:'Guide',title:'Lucky colors for all 12 zodiac signs',hex:'#3BB8B3',hex2:'#E77FA6',
+  dek:'Your sign\'s three lucky colors and the planet behind them.',
+  body:()=>`<p>Every zodiac sign belongs to an element (fire, earth, air or water) and is ruled by a planet. Your lucky colors come from both. Fire signs glow in reds and golds, earth signs in greens and browns, air signs in light, bright shades and water signs in silvers, sea greens and deep reds.</p>
+  <div class="tw"><table><thead><tr><th>Sign</th><th>Element</th><th>Ruler</th><th>Lucky colors</th></tr></thead><tbody>${SIGNS.map(s=>`<tr><td><b>${s.name}</b><br><small style="color:var(--muted)">${s.dates}</small></td><td>${s.element}</td><td>${s.ruler}</td><td>${s.palette.map(p=>`<span class="dot" style="background:${p[1]}"></span>${p[0]}`).join('<br>')}</td></tr>`).join('')}</tbody></table></div>
+  <h2>Your power day</h2>
+  <p>When the day of the week belongs to your ruling planet, that day's color is doubly lucky for you. Aries and Scorpio, that's Tuesday. Taurus and Libra, Friday. Gemini and Virgo, Wednesday. Cancer, Monday. Leo, Sunday. Sagittarius and Pisces, Thursday. Capricorn and Aquarius, Saturday.</p>
+  <p>Check the <a href="#zodiac">daily horoscope</a> for your color today.</p>`},
+ {slug:'read-birth-color',tag:'Numerology',title:'Find your lucky color by date of birth',hex:'#F3C125',hex2:'#1F9D6B',
+  dek:'The simple sum that gives you your life path number and your signature color.',
+  body:()=>`<p>Your life path number is the most important number in numerology, and it is easy to find. Write your full date of birth as digits, add them all together, and keep adding the digits of the answer until you reach a single number.</p>
+  <h2>An example</h2>
+  <p>Born on 14 March 1995? That's 1 + 9 + 9 + 5 + 0 + 3 + 1 + 4 = 32. Then 3 + 2 = 5. Your life path number is 5, The Explorer, and your color is sky blue.</p>
+  <p>If you land on 11, 22 or 33 along the way, stop. These are master numbers. They carry the color of their sum (11 becomes 2, for example) with extra intensity.</p>
+  <h2>Your number, your color</h2>
+  <div class="tw"><table><thead><tr><th>Number</th><th>Color</th><th>Type</th><th>Stone</th></tr></thead><tbody>${Object.entries(LIFE).map(([k,v])=>`<tr><td><b>${k}</b></td><td><span class="dot" style="background:${v[1]}"></span>${v[0]}</td><td>${v[2]}</td><td>${v[3]}</td></tr>`).join('')}</tbody></table></div>
+  <p>Your birth color never changes, so treat it as your signature: a color for your wallet, your phone case or your front door. Try the <a href="#birthday">birthday color calculator</a> to work it out in one tap.</p>`},
+ {slug:'read-wear-it',tag:'Style',title:'10 easy ways to use your lucky color without changing your outfit',hex:'#E77FA6',hex2:'#E6BE6A',
+  dek:'Small, quiet ways to carry your color through any day, even in a uniform.',
+  body:()=>`<p>You don't need a purple suit on a Saturday. Lucky colors work just as well in small doses. Here are ten easy ways to bring your color into your day.</p>
+  <ol><li><strong>Socks or underwear.</strong> Close to your skin and nobody needs to know.</li><li><strong>Nail polish.</strong> One accent nail is enough.</li><li><strong>Hair tie or clip.</strong> Easy to swap every morning.</li><li><strong>Phone wallpaper.</strong> You look at it more than anything else.</li><li><strong>A card in your wallet.</strong> Cut a square of colored paper and keep it with your money.</li><li><strong>Pen or notebook.</strong> Especially on exam and meeting days.</li><li><strong>Your drink.</strong> A green tea on Wednesday, orange juice on Sunday.</li><li><strong>A flower on your desk.</strong> Cheap, pretty and very visible.</li><li><strong>Your screen theme.</strong> Change the accent color on your laptop.</li><li><strong>A bracelet of beads.</strong> Keep a set of seven, one for each day.</li></ol>
+  <p>Pick one and make it a morning habit. Check <a href="#today">today's color</a> first.</p>`},
+ {slug:'read-palm-basics',tag:'Palm reading',title:'Palm reading basics: the four lines everyone has',hex:'#7FD1AE',hex2:'#7DB7E8',
+  dek:'How to find your heart, head, life and fate lines, and what they are said to mean.',
+  body:()=>`<p>Palm reading, or palmistry, has been practiced from India to Greece for thousands of years. Start with the four main lines. Hold your dominant hand palm-up in good light.</p>
+  ${Object.values(LINES).map(l=>`<h2><span class="dot" style="background:${l.hex}"></span>${l.name}</h2><p><strong>Where:</strong> ${l.where} <strong>What it shows:</strong> ${l.about}</p><ul>${l.reads.map(r=>`<li><strong>${r[0]}:</strong> ${r[1]}</li>`).join('')}</ul>`).join('')}
+  <h2>Which hand to read</h2>
+  <p>Your non-dominant hand is said to show what you were born with. Your dominant hand shows what you've done with it. Comparing the two is part of the fun.</p>
+  <p>Try the <a href="#palm">interactive palm</a> on our home page.</p>`},
+ {slug:'read-love-money-career',tag:'Guide',title:'The luckiest colors for love, money and career',hex:'#1F9D6B',hex2:'#C8233B',
+  dek:'Which colors to reach for when you want romance, a raise or a fresh start.',
+  body:()=>`<p>Colors carry meaning in every culture. Here is a quick guide to which ones to choose when one part of life needs a boost.</p>
+  <h2>For love</h2><p><span class="dot" style="background:#E77FA6"></span><strong>Pink</strong> for tenderness and self-love. <span class="dot" style="background:#C8233B"></span><strong>Red</strong> for passion and attraction. Friday, ruled by Venus, is the best day to wear either.</p>
+  <h2>For money</h2><p><span class="dot" style="background:#E6BE6A"></span><strong>Gold</strong> and <span class="dot" style="background:#F3C125"></span><strong>yellow</strong> for abundance, <span class="dot" style="background:#1F9D6B"></span><strong>green</strong> for steady growth. Thursday, Jupiter's day, is the classic money day.</p>
+  <h2>For career</h2><p><span class="dot" style="background:#23306B"></span><strong>Navy</strong> and <span class="dot" style="background:#2F6FE0"></span><strong>blue</strong> build trust. <span class="dot" style="background:#8A3FD1"></span><strong>Purple</strong> signals leadership. Wear them for interviews, reviews and big meetings.</p>
+  <h2>For a fresh start</h2><p><span class="dot" style="background:#EDEAE2"></span><strong>White</strong> clears the slate. Wear it on a Monday or the first day of a month.</p>
+  <p>Explore every color in our <a href="#colors">color meanings</a> guide.</p>`}
+];
+function report(d){
+  const L=luckFor(d);
+  const slug='read-luck-'+ymd(d);
+  const list=SIGNS.map(s=>{const r=readingFor(s,d);return `<li><strong>${s.name}:</strong> <span class="dot" style="background:${r.hex}"></span>${r.color}, number ${r.num}. ${r.power?'Your power day.':esc(r.mood.split('.')[0])+'.'}</li>`;}).join('');
+  const next=luckFor(addDays(d,1));
+  return {slug,tag:'Daily luck report',date:d,hex:L.hex,hex2:'#0D0A1C',
+   title:`${L.day}'s lucky color: ${L.name} and the number ${L.num}`,
+   dek:`${fmtFull(d)}. A ${L.planet} day for ${L.vibe}.`,
+   body:()=>`<p>${L.day} belongs to ${PLANET_LINE[L.planet]}. Today's shade is <strong><span class="dot" style="background:${L.hex}"></span>${L.name}</strong> and your lucky number is <strong>${L.num}</strong>. Lean into ${L.vibe}.</p>
+   <h2>How to use ${L.name.toLowerCase()} today</h2>
+   <ul><li><strong>Wear:</strong> one ${L.name.toLowerCase()} piece, paired with ${L.pair.toLowerCase()}.</li><li><strong>Carry:</strong> something ${L.name.toLowerCase()} in your bag or wallet.</li><li><strong>Number ${L.num}:</strong> choose it for times, seats and quantities, and notice where it shows up.</li></ul>
+   <h2>Your sign today</h2>
+   <ul>${list}</ul>
+   <p>Want your full reading? <a href="#zodiac">Open the daily horoscope</a> and pick your sign.</p>
+   <h2>Tomorrow</h2>
+   <p>${next.day} is ${next.planet}'s day. Look for it in our Instagram Stories, or check the week ahead on our home page.</p>`};
+}
+const ARTICLES={};
+GUIDES.forEach(g=>ARTICLES[g.slug]=g);
+
+/* ---------- render: today ---------- */
+const now=new Date();
+const T=luckFor(now);
+document.documentElement.style.setProperty('--today',T.hex);
+document.documentElement.style.setProperty('--today-soft',rgba(T.hex,.3));
+document.documentElement.style.setProperty('--today-text',lighten(T.hex));
+$('#todayDate').textContent=fmtLong(now);
+$('#todayName').textContent=T.name;
+$('#todayNum').textContent=T.num;
+$('#todayPlanet').textContent=T.planet;
+$('#todayPair').textContent=T.pair;
+$('#todayLead').textContent=`${T.day} belongs to ${PLANET_LINE[T.planet]}. Wear ${T.name.toLowerCase()}, carry it or keep it close for ${T.vibe}.`;
+$('#orb').setAttribute('aria-label',`A glowing ${T.name} orb`);
+$('#yr').textContent=now.getFullYear();
+$('#copyBtn').addEventListener('click',async()=>{
+  const txt=`Today's lucky color is ${T.name} and my lucky number is ${T.num}. Find yours at luckycolortoday.com`;
+  try{await navigator.clipboard.writeText(txt);$('#copyNote').textContent='Copied. Paste it into your Story or group chat and tag @luckycolortoday.';}
+  catch(e){$('#copyNote').textContent=txt;}
+});
+
+/* week */
+(function(){
+  const start=now;
+  let h='';
+  for(let i=0;i<7;i++){
+    const d=addDays(start,i),L=luckFor(d),isT=ymd(d)===ymd(now);
+    h+=`<div class="day${isT?' is-today':''}"><div class="sw" style="background:${L.hex}"></div><b>${isT?'Today':L.day.slice(0,3)+' '+d.getDate()}</b><span>${L.name}<br>${L.planet} · ${L.num}</span></div>`;
+  }
+  $('#week').innerHTML=h;
+})();
+
+/* ---------- render: zodiac ---------- */
+function signFromDate(d){
+  const m=d.getMonth()+1,day=d.getDate();
+  const cut=[[1,20,'capricorn','aquarius'],[2,19,'aquarius','pisces'],[3,21,'pisces','aries'],[4,20,'aries','taurus'],[5,21,'taurus','gemini'],[6,21,'gemini','cancer'],[7,23,'cancer','leo'],[8,23,'leo','virgo'],[9,23,'virgo','libra'],[10,23,'libra','scorpio'],[11,22,'scorpio','sagittarius'],[12,22,'sagittarius','capricorn']];
+  const c=cut[m-1];return day<c[1]?c[2]:c[3];
+}
+let saved=null;try{saved=localStorage.getItem('lct-sign');}catch(e){}
+let current=SIGNS.find(s=>s.id===saved)||SIGNS.find(s=>s.id===signFromDate(now));
+$('#signs').innerHTML=SIGNS.map(s=>`<button type="button" class="sign" data-sign="${s.id}" aria-pressed="false"><span class="g" aria-hidden="true">${s.glyph}</span><b>${s.name}</b><small>${s.dates}</small></button>`).join('');
+function renderReading(){
+  document.querySelectorAll('.sign').forEach(b=>b.setAttribute('aria-pressed',b.dataset.sign===current.id));
+  const r=readingFor(current,now);
+  const ink=inkOn(r.hex);
+  $('#reading').innerHTML=`
+  <div class="reading-color" style="background:linear-gradient(160deg,${r.hex},color-mix(in srgb,${r.hex} 55%,#000));color:${ink}">
+    <div><span class="tag">${esc(current.name)} · ${fmtLong(now)}</span></div>
+    <div><div class="big">${esc(r.color)}</div>
+    <div class="meta"><span>Lucky number <b>${r.num}</b></span><span>Lucky hours ${r.hours}</span></div></div>
+  </div>
+  <div class="reading-body">
+    <div><span class="eyebrow">${esc(current.element)} sign · ruled by ${esc(current.ruler)}</span>
+    <h3 style="margin-top:8px">${esc(current.name)}, ${r.power?'today is your power day':'here is your day'}</h3>
+    <div class="stars" aria-label="Luck rating ${r.stars} out of 5">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div></div>
+    <dl class="rows" style="margin:0">
+      <div class="row"><dt>Mood</dt><dd>${esc(r.mood)}${r.power?` ${esc(T.planet)} rules both today and your sign, so ${esc(T.name.toLowerCase())} is doubly lucky for you.`:''}</dd></div>
+      <div class="row"><dt>Love</dt><dd>${esc(r.love)}</dd></div>
+      <div class="row"><dt>Money &amp; work</dt><dd>${esc(r.money)}</dd></div>
+      <div class="row"><dt>Try this</dt><dd>${esc(r.tip)} Best match today: <b>${esc(r.match.name)}</b>.</dd></div>
+    </dl>
+    <div class="inline-cta"><a class="btn btn-gold" href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener">Get ${esc(current.name)}'s color daily on Instagram</a><a class="btn btn-ghost" href="https://www.pinterest.com/luckycolortoday/" target="_blank" rel="noopener">Save to Pinterest</a></div>
+  </div>`;
+}
+$('#signs').addEventListener('click',e=>{
+  const b=e.target.closest('.sign');if(!b)return;
+  current=SIGNS.find(s=>s.id===b.dataset.sign);
+  try{localStorage.setItem('lct-sign',current.id);}catch(err){}
+  renderReading();
+});
+renderReading();
+
+/* ---------- render: birthday ---------- */
+function renderBday(){
+  const v=$('#dob').value;
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(v)){$('#math').textContent='Enter a full date to see your number.';return;}
+  const lp=lifePath(v);
+  const c=LIFE[lp.base];
+  const [y,m,dd]=v.split('-');
+  $('#math').innerHTML=`<b style="color:var(--text)">${dd}/${m}/${y}</b><br>`+lp.steps.map(esc).join('<br>')+(lp.master?`<br>Master number ${lp.n}, carrying the color of ${lp.base}`:'');
+  $('#bdayResult').innerHTML=`<div class="result"><div class="disc" style="background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.5),rgba(255,255,255,0) 26%),${c[1]}"></div>
+  <div><span class="eyebrow">Life path ${lp.master?lp.n+' (master)':lp.n} · ${esc(c[2])}</span><h3>${esc(c[0])}</h3><p style="color:var(--muted)">${esc(c[4])}</p>
+  <div class="chips"><span class="chip">Stone: ${esc(c[3])}</span><span class="chip">Number: ${lp.n}</span><span class="chip">Born on a ${luckFor(new Date(+y,+m-1,+dd)).day}</span></div></div></div>
+  <p style="margin-top:20px;font-size:1rem;color:var(--muted)">Share your birth color with a friend and compare. Tag <a href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener">@luckycolortoday</a> and we may feature it.</p>`;
+}
+$('#dob').addEventListener('input',renderBday);
+renderBday();
+
+/* ---------- render: colors ---------- */
+let colIdx=COLORS.findIndex(c=>c[0]===({Sun:'Gold',Moon:'White',Mars:'Red',Mercury:'Green',Jupiter:'Yellow',Venus:'Pink',Saturn:'Purple'})[T.planet]);
+if(colIdx<0)colIdx=0;
+$('#swatches').innerHTML=COLORS.map((c,i)=>`<button type="button" class="swatch" data-i="${i}" aria-pressed="false"><i style="background:${c[1]}"></i>${c[0]}</button>`).join('');
+function renderColor(){
+  document.querySelectorAll('.swatch').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===colIdx));
+  const c=COLORS[colIdx],ink=inkOn(c[1]);
+  $('#colorCard').innerHTML=`<div class="face" style="background:linear-gradient(160deg,${c[1]},color-mix(in srgb,${c[1]} 60%,#000));color:${ink}"><span class="eyebrow" style="color:${ink};opacity:.85">The color of</span><h3>${c[0]}</h3><p style="font-size:1.1rem">${c[2]}</p></div>
+  <div class="info"><div class="uses"><div class="use"><small>Love</small><p>${c[3]}</p></div><div class="use"><small>Money</small><p>${c[4]}</p></div><div class="use"><small>Career</small><p>${c[5]}</p></div></div>
+  <p><b>Wear it on:</b> ${c[6]}</p><a href="#read-love-money-career">Read: the luckiest colors for love, money and career</a></div>`;
+}
+$('#swatches').addEventListener('click',e=>{const b=e.target.closest('.swatch');if(!b)return;colIdx=+b.dataset.i;renderColor();});
+renderColor();
+
+/* ---------- render: palm ---------- */
+let lineKey='heart';
+$('#lineTabs').innerHTML=Object.entries(LINES).map(([k,l])=>`<button type="button" class="line-tab" data-line="${k}" aria-pressed="false"><i style="background:${l.hex}"></i>${l.name}</button>`).join('');
+function renderLine(){
+  document.querySelectorAll('.line-tab').forEach(b=>b.setAttribute('aria-pressed',b.dataset.line===lineKey));
+  document.querySelectorAll('.pline').forEach(p=>{p.classList.toggle('on',p.dataset.line===lineKey);p.style.opacity=p.dataset.line===lineKey?1:.45;});
+  const l=LINES[lineKey];
+  $('#lineInfo').innerHTML=`<h3 style="color:${l.hex}">${l.name}</h3><p><b>Where:</b> ${l.where}</p><p style="color:var(--muted)">${l.about}</p><ul class="signs-list">${l.reads.map(r=>`<li><b>${r[0]}:</b> ${r[1]}</li>`).join('')}</ul>`;
+}
+$('#lineTabs').addEventListener('click',e=>{const b=e.target.closest('.line-tab');if(!b)return;lineKey=b.dataset.line;renderLine();});
+document.querySelectorAll('.pline').forEach(p=>{p.addEventListener('click',()=>{lineKey=p.dataset.line;renderLine();});p.setAttribute('tabindex','0');p.setAttribute('role','button');p.setAttribute('aria-label',LINES[p.dataset.line].name);p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();lineKey=p.dataset.line;renderLine();}});});
+renderLine();
+
+/* ---------- render: journal ---------- */
+function artSVG(a,b,seed){
+  const r=n=>(hash(seed+n)%1000)/1000;
+  let stars='';for(let i=0;i<26;i++)stars+=`<circle cx="${(r('x'+i)*400).toFixed(0)}" cy="${(r('y'+i)*200).toFixed(0)}" r="${(r('r'+i)*1.6+.4).toFixed(1)}" fill="#fff" opacity="${(r('o'+i)*.6+.25).toFixed(2)}"/>`;
+  return `<svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%" aria-hidden="true"><rect width="400" height="200" fill="#0D0A1C"/><radialGradient id="g${seed}" cx="70%" cy="45%" r="60%"><stop offset="0" stop-color="${a}" stop-opacity=".65"/><stop offset="1" stop-color="${b}" stop-opacity="0"/></radialGradient><rect width="400" height="200" fill="url(#g${seed})"/>${stars}<circle cx="290" cy="95" r="58" fill="${a}"/><circle cx="270" cy="75" r="16" fill="#fff" opacity=".35"/><circle cx="290" cy="95" r="76" fill="none" stroke="#E6BE6A" stroke-opacity=".5" stroke-dasharray="3 6"/></svg>`;
+}
+const todayRep=report(now);ARTICLES[todayRep.slug]=todayRep;
+$('#featurePost').innerHTML=`<a class="post feature" href="#${todayRep.slug}"><div class="art">${artSVG(todayRep.hex,'#2B0B25','f')}</div><div class="txt"><small>Today · Daily luck report</small><h3>${esc(todayRep.title)}</h3><p>${esc(todayRep.dek)}</p></div></a>`;
+let past='';
+for(let i=1;i<=5;i++){
+  const d=addDays(now,-i),rp=report(d);ARTICLES[rp.slug]=rp;
+  past+=`<a class="mini" href="#${rp.slug}"><i style="background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.45),rgba(255,255,255,0) 30%),${rp.hex}"></i><span><b>${esc(rp.title)}</b><small>${fmtLong(d)}</small></span></a>`;
+}
+$('#pastPosts').innerHTML=past;
+$('#guides').innerHTML=GUIDES.map((g,i)=>`<a class="post" href="#${g.slug}"><div class="art">${artSVG(g.hex,g.hex2,'g'+i)}</div><div class="txt"><small>${esc(g.tag)}</small><h3>${esc(g.title)}</h3><p>${esc(g.dek)}</p></div></a>`).join('');
+
+/* ---------- reader routing (plain #name hashes) ---------- */
+function openArticle(slug){
+  const a=ARTICLES[slug];if(!a)return false;
+  $('#rHero').innerHTML=artSVG(a.hex,a.hex2||'#2B0B25','r'+slug);
+  $('#rTag').textContent=a.tag;
+  $('#rTitle').textContent=a.title;
+  $('#rBy').textContent=(a.date?fmtFull(a.date)+' · ':'')+'Lucky Color Today';
+  $('#rBody').innerHTML=a.body();
+  $('#reader').classList.add('open');$('#reader').scrollTop=0;
+  document.body.style.overflow='hidden';
+  document.title=a.title+' | Lucky Color Today';
+  return true;
+}
+function closeArticle(){$('#reader').classList.remove('open');document.body.style.overflow='';document.title='Lucky Color Today';}
+function route(){
+  const h=location.hash.slice(1);
+  if(h.startsWith('read-')){if(!openArticle(h))closeArticle();return;}
+  const wasOpen=$('#reader').classList.contains('open');
+  closeArticle();
+  if(wasOpen&&h){const el=document.getElementById(h);if(el)el.scrollIntoView();}
+}
+window.addEventListener('hashchange',route);
+route();
+
+/* ---------- newsletter (no backend yet: honest message) ---------- */
+$('#newsForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const v=$('#newsEmail').value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){$('#newsMsg').innerHTML='Please enter a full email address, like name@example.com.';return;}
+  $('#newsMsg').innerHTML=`<b>Almost there.</b> Our daily email launches soon. To be on the first list, send the word "Subscribe" to <a href="mailto:info@luckycolortoday.com?subject=Subscribe">info@luckycolortoday.com</a>. Until then, get the color daily on <a href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener">Instagram</a>.`;
+});
+
+/* ---------- menu, floating bar ---------- */
+$('#menuBtn').addEventListener('click',()=>{const o=$('#nav').classList.toggle('open');$('#menuBtn').setAttribute('aria-expanded',o);});
+$('#nav').addEventListener('click',e=>{if(e.target.closest('a'))$('#nav').classList.remove('open');});
+try{if(sessionStorage.getItem('lct-float')==='0')$('#float').classList.add('hide');}catch(e){}
+$('#floatClose').addEventListener('click',()=>{$('#float').classList.add('hide');try{sessionStorage.setItem('lct-float','0');}catch(e){}});
+
+/* ---------- starfield ---------- */
+(function sky(){
+  const c=$('#sky'),ctx=c.getContext('2d');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W,H,stars=[];
+  function size(){const r=c.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);W=r.width;H=r.height;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    stars=Array.from({length:Math.round(W*H/5200)},(_,i)=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+.3,p:Math.random()*6.28,s:.4+Math.random()*1.2}));}
+  function draw(t){ctx.clearRect(0,0,W,H);for(const s of stars){const a=reduce?.6:.35+.45*Math.sin(s.p+t*.001*s.s);ctx.globalAlpha=Math.max(.08,a);ctx.fillStyle='#FFF4DC';ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,6.283);ctx.fill();}
+    if(!reduce)requestAnimationFrame(draw);}
+  size();addEventListener('resize',size);requestAnimationFrame(draw);
+})();
+})();
+</script>
+</body>
+</html>
