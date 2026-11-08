@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="p:domain_verify" content="e11136fcab3094289b9a2fb9f36c6e77"/>
+<link rel="alternate" type="application/rss+xml" title="Lucky Color Today Journal" href="https://luckycolortoday.com/feed.xml">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lucky Color Today</title>
 <meta name="description" content="Your lucky color of the day, lucky number and daily horoscope for all 12 zodiac signs. Spin the daily fortune wheel, find your birthday color, learn color meanings and palm reading. New every day.">
@@ -533,6 +534,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 36px;position:relative;ov
     </div>
     <div class="bento rv" id="journalBento"></div>
     <div class="minis rv" id="pastPosts"></div>
+    <p class="rv" style="margin-top:28px"><a class="btn btn-glass" href="/journal/">All guides in the Journal</a></p>
   </div>
 </section>
 
@@ -630,7 +632,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 36px;position:relative;ov
         <p style="color:var(--muted);margin-top:14px;max-width:38ch;font-size:1rem">Your lucky color, number and horoscope, new every day.</p>
         <p style="margin-top:14px;font-size:1rem">Email: <a href="mailto:info@luckycolortoday.com">info@luckycolortoday.com</a></p>
       </div>
-      <div><h4>Explore</h4><ul><li><a href="#luck">Today's color</a></li><li><a href="#zodiac">Daily horoscope</a></li><li><a href="#fortune">Fortune wheel</a></li><li><a href="#birthday">Birthday color</a></li><li><a href="#colors">Color meanings</a></li><li><a href="#palm">Palm reading</a></li><li><a href="#journal">Journal</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="#luck">Today's color</a></li><li><a href="#zodiac">Daily horoscope</a></li><li><a href="#fortune">Fortune wheel</a></li><li><a href="#birthday">Birthday color</a></li><li><a href="#colors">Color meanings</a></li><li><a href="#palm">Palm reading</a></li><li><a href="/journal/">Journal</a></li><li><a href="/feed.xml">RSS feed</a></li></ul></div>
       <div><h4>Follow</h4><ul><li><a href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.pinterest.com/luckycolortoday/" target="_blank" rel="noopener">Pinterest</a></li><li><a href="https://www.facebook.com/luckycolortodayofficial" target="_blank" rel="noopener">Facebook</a></li></ul></div>
       <div><h4>Our brands</h4><ul><li><a href="https://digipodstudio.com/" target="_blank" rel="noopener">Digipod Studio</a></li><li><a href="#faq">How it works</a></li></ul></div>
     </div>
@@ -941,6 +943,7 @@ const GUIDES=[
  {slug:'read-love-money-career',tag:'Guide',title:'The luckiest colors for love, money and career',hex:'#1F9D6B',hex2:'#C8233B',dek:'Which colors to reach for when you want romance, a raise or a fresh start.',
   body:()=>`<h2>For love</h2><p><span class="dot" style="background:#E77FA6"></span><strong>Pink</strong> for tenderness and <span class="dot" style="background:#C8233B"></span><strong>red</strong> for passion. Friday, ruled by Venus, is the best day for either.</p><h2>For money</h2><p><span class="dot" style="background:#E6BE6A"></span><strong>Gold</strong> and <span class="dot" style="background:#F3C125"></span><strong>yellow</strong> for abundance, <span class="dot" style="background:#1F9D6B"></span><strong>green</strong> for steady growth. Thursday is the classic money day.</p><h2>For career</h2><p><span class="dot" style="background:#23306B"></span><strong>Navy</strong> and <span class="dot" style="background:#2F6FE0"></span><strong>blue</strong> build trust. <span class="dot" style="background:#8A3FD1"></span><strong>Purple</strong> signals leadership.</p><h2>For a fresh start</h2><p><span class="dot" style="background:#EDEAE2"></span><strong>White</strong> clears the slate. Wear it on a Monday or the first day of a month.</p>`}
 ];
+const JPAGE={"read-planet-days":"lucky-color-for-each-day-of-the-week","read-zodiac-colors":"zodiac-lucky-colors","read-birth-color":"lucky-color-by-date-of-birth","read-wear-it":"ways-to-use-your-lucky-color","read-palm-basics":"palm-reading-basics","read-love-money-career":"lucky-colors-for-love-money-career"};/*journal-pages*/
 function report(d){const L=luckFor(d),next=luckFor(addDays(d,1));
   const list=SIGNS.map(s=>{const r=readingFor(s,d);return `<li><strong>${s.name}:</strong> <span class="dot" style="background:${r.hex}"></span>${r.color}, number ${r.num}. ${r.power?'Your power day.':esc(r.mood.split('.')[0])+'.'}</li>`;}).join('');
   return {slug:'read-luck-'+ymd(d),tag:'Daily luck report',date:d,hex:L.hex,hex2:'#2B0B25',title:`${L.day}'s lucky color: ${L.name} and the number ${L.num}`,dek:`A ${L.planet} day for ${L.vibe}.`,
@@ -951,7 +954,7 @@ function artSVG(a,b,seed){const r=n=>(hash(seed+n)%1000)/1000;let st='';for(let 
 (function(){
   const tr=report(now);ARTICLES[tr.slug]=tr;
   let h=`<a class="post feature" href="#${tr.slug}" data-tilt><div class="art">${artSVG(tr.hex,'#2B0B25','f')}</div><div class="txt"><small>Today · Daily luck report</small><h3>${esc(tr.title)}</h3><p>${esc(tr.dek)}</p></div></a>`;
-  h+=GUIDES.map((g,i)=>`<a class="post" href="#${g.slug}" data-tilt><div class="art">${artSVG(g.hex,g.hex2,'g'+i)}</div><div class="txt"><small>${esc(g.tag)}</small><h3>${esc(g.title)}</h3></div></a>`).join('');
+  h+=GUIDES.map((g,i)=>`<a class="post" href="${JPAGE[g.slug]?'/journal/'+JPAGE[g.slug]+'/':'#'+g.slug}" data-tilt><div class="art">${artSVG(g.hex,g.hex2,'g'+i)}</div><div class="txt"><small>${esc(g.tag)}</small><h3>${esc(g.title)}</h3></div></a>`).join('');
   h+=`<a class="post" href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener" style="grid-column:span 2;background:radial-gradient(80% 120% at 100% 0%,${rgba(T.hex,.45)},transparent 60%),var(--bg-2)"><div class="txt"><small>Every morning</small><h3>Get the daily luck report in your feed</h3><p>Follow @luckycolortoday on Instagram and never miss a lucky day.</p><span class="btn btn-gold" style="justify-self:start;margin-top:8px">Follow on Instagram</span></div></a>`;
   $('#journalBento').innerHTML=h;
   let p='';for(let i=1;i<=5;i++){const d=addDays(now,-i),rp=report(d);ARTICLES[rp.slug]=rp;p+=`<a class="mini" href="#${rp.slug}" style="--c:${rgba(rp.hex,.6)}"><i style="background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.5),rgba(255,255,255,0) 35%),${rp.hex}"></i><span><b>${esc(rp.day||d.toLocaleDateString('en-US',{weekday:'long'}))}: ${esc(luckFor(d).name)}</b><small>${fmtLong(d)}</small></span></a>`;}
