@@ -8,7 +8,7 @@
 <link rel="alternate" type="application/rss+xml" title="Lucky Color Today Journal" href="https://luckycolortoday.com/feed.xml">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lucky Color Today</title>
-<meta name="description" content="Your lucky color of the day, lucky number and daily horoscope for all 12 zodiac signs. Spin the daily fortune wheel, find your birthday color, learn color meanings and palm reading. New every day.">
+<meta name="description" content="Your lucky color of the day, lucky number and daily horoscope for all 12 zodiac signs, plus a fortune wheel, birthday colors and palm reading.">
 <meta property="og:title" content="Lucky Color Today: your lucky color, number and horoscope">
 <meta property="og:description" content="A new lucky color every day, personalised for your zodiac sign and birthday.">
 <meta property="og:type" content="website">
@@ -351,7 +351,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 36px;position:relative;ov
 .reader-bar .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:12px}
 .reader-hero{height:clamp(220px,34vw,380px);position:relative}
 .reader-body{max-width:720px;margin:0 auto;padding:44px clamp(18px,4vw,24px) 90px}
-.reader-body h1{font-size:clamp(2.3rem,5vw,3.6rem);margin:14px 0 16px}
+.reader-body h1,.reader-body #rTitle{font-size:clamp(2.3rem,5vw,3.6rem);margin:14px 0 16px}
 .reader-body .by{color:var(--muted);font-size:.95rem;margin-bottom:30px}
 .prose{font-size:1.14rem;line-height:1.8}
 .prose p{margin:0 0 1.15em}
@@ -650,7 +650,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 36px;position:relative;ov
   <div class="reader-hero" id="rHero"></div>
   <div class="reader-body">
     <span class="eyebrow" id="rTag"></span>
-    <h1 id="rTitle"></h1>
+    <h2 id="rTitle"></h2>
     <p class="by" id="rBy"></p>
     <div class="prose" id="rBody"></div>
     <div class="end-cta glass">
