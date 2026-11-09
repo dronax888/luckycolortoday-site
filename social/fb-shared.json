@@ -1,4 +1,6 @@
 {
   "_about": "Journal articles already shared on the Lucky Color Today Facebook Page (page slugs from tools/journal.json). The daily scheduled task adds to this list; when every article is in it, the list is emptied and sharing starts again from the top.",
-  "shared": []
+  "shared": [
+    "lucky-color-for-each-day-of-the-week"
+  ]
 }
