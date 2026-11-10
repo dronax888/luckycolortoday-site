@@ -83,6 +83,7 @@ const head = ({ title, desc, url, img, ld }) => `<!DOCTYPE html>
 ${ld.map(x => `<script type="application/ld+json">${JSON.stringify(x)}</script>`).join('\n')}
 <style>
 ${CSS}</style>
+<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"eaa6997fa393e2c9d73971f20e089fc8"})});</script>
 </head>
 <body>
 <header class="bar"><div class="wrap">

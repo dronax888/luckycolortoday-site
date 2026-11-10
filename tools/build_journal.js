@@ -66,6 +66,7 @@ const head = ({ title, desc, url, img, type, extra = '' }) => `<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500;1,6..96,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 ${extra}<style>
 ${CSS}</style>
+<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"eaa6997fa393e2c9d73971f20e089fc8"})});</script>
 </head>
 <body>
 <header class="bar"><div class="wrap">
