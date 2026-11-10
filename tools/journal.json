@@ -1,47 +1,53 @@
 {
-  "_about": "Journal articles that get their own page at /journal/<page>/, a Pinterest image and an RSS item. 'id' is the article's slug in the GUIDES list in index.html (the article text lives there). Add new articles to GUIDES and here, then run: python3 tools/journal_pins.py && node tools/build_journal.js",
-  "articles": [
-    {
-      "id": "read-planet-days",
-      "page": "lucky-color-for-each-day-of-the-week",
-      "date": "2026-11-08T08:00:00+03:00",
-      "pinTitle": "Lucky Color for Each Day of the Week",
-      "pinText": "Why does every day have its own lucky color? The seven days are named after the seven classical planets, and each planet has its own color, gemstone and number. See the full planetary week and how to wear your color for good luck. #luckycolor #colorastrology #dailyluck"
-    },
-    {
-      "id": "read-zodiac-colors",
-      "page": "zodiac-lucky-colors",
-      "date": "2026-11-08T09:00:00+03:00",
-      "pinTitle": "Lucky Colors for All 12 Zodiac Signs",
-      "pinText": "Find your zodiac sign's three lucky colors, its element and ruling planet, plus your weekly power day. Aries to Pisces in one easy chart. #zodiaccolors #astrology #luckycolor #horoscope"
-    },
-    {
-      "id": "read-birth-color",
-      "page": "lucky-color-by-date-of-birth",
-      "date": "2026-11-08T10:00:00+03:00",
-      "pinTitle": "Find Your Lucky Color by Date of Birth",
-      "pinText": "Add up the digits of your birthday to get your life path number, then find your signature lucky color and gemstone. A simple numerology guide with a worked example. #numerology #lifepathnumber #luckycolor"
-    },
-    {
-      "id": "read-wear-it",
-      "page": "ways-to-use-your-lucky-color",
-      "date": "2026-11-08T11:00:00+03:00",
-      "pinTitle": "10 Easy Ways to Use Your Lucky Color",
-      "pinText": "No need to wear head-to-toe color. Ten small, quiet ways to carry your lucky color through the day, from socks and nail polish to your phone wallpaper. Works even with a uniform. #luckycolor #goodluck #dailyritual"
-    },
-    {
-      "id": "read-palm-basics",
-      "page": "palm-reading-basics",
-      "date": "2026-11-08T12:00:00+03:00",
-      "pinTitle": "Palm Reading for Beginners: The 4 Main Lines",
-      "pinText": "How to find your heart line, head line, life line and fate line, and what each one is said to show about love, thinking, energy and career. A simple beginner's guide to palmistry. #palmreading #palmistry #spiritual"
-    },
-    {
-      "id": "read-love-money-career",
-      "page": "lucky-colors-for-love-money-career",
-      "date": "2026-11-08T13:00:00+03:00",
-      "pinTitle": "Lucky Colors for Love, Money and Career",
-      "pinText": "Which color to wear for romance, a raise or a fresh start: pink and red for love, gold and green for money, navy and purple for career. Plus the best day of the week for each. #luckycolors #moneyluck #colormeaning"
-    }
-  ]
+ "_about": "Journal articles that get their own page at /journal/<page>/, a Pinterest image and an RSS item. 'id' is the article's slug in the GUIDES list in index.html (the article text lives there). Add new articles to GUIDES and here, then run: python3 tools/journal_pins.py && node tools/build_journal.js. 'desc' is the page's Google description (about 150 characters).",
+ "articles": [
+  {
+   "id": "read-planet-days",
+   "page": "lucky-color-for-each-day-of-the-week",
+   "date": "2026-11-08T08:00:00+03:00",
+   "pinTitle": "Lucky Color for Each Day of the Week",
+   "pinText": "Why does every day have its own lucky color? The seven days are named after the seven classical planets, and each planet has its own color, gemstone and number. See the full planetary week and how to wear your color for good luck. #luckycolor #colorastrology #dailyluck",
+   "desc": "What is the lucky color for each day of the week? See the planet, colors and lucky number behind Monday to Sunday, and how to wear each day's color."
+  },
+  {
+   "id": "read-zodiac-colors",
+   "page": "zodiac-lucky-colors",
+   "date": "2026-11-08T09:00:00+03:00",
+   "pinTitle": "Lucky Colors for All 12 Zodiac Signs",
+   "pinText": "Find your zodiac sign's three lucky colors, its element and ruling planet, plus your weekly power day. Aries to Pisces in one easy chart. #zodiaccolors #astrology #luckycolor #horoscope",
+   "desc": "Lucky colors for all 12 zodiac signs, Aries to Pisces: each sign's three lucky colors, element, ruling planet and luckiest day of the week, in one chart."
+  },
+  {
+   "id": "read-birth-color",
+   "page": "lucky-color-by-date-of-birth",
+   "date": "2026-11-08T10:00:00+03:00",
+   "pinTitle": "Find Your Lucky Color by Date of Birth",
+   "pinText": "Add up the digits of your birthday to get your life path number, then find your signature lucky color and gemstone. A simple numerology guide with a worked example. #numerology #lifepathnumber #luckycolor",
+   "desc": "Find your lucky color by date of birth. Add up your birthday to get your life path number, then see your signature color and gemstone, with an example."
+  },
+  {
+   "id": "read-wear-it",
+   "page": "ways-to-use-your-lucky-color",
+   "date": "2026-11-08T11:00:00+03:00",
+   "pinTitle": "10 Easy Ways to Use Your Lucky Color",
+   "pinText": "No need to wear head-to-toe color. Ten small, quiet ways to carry your lucky color through the day, from socks and nail polish to your phone wallpaper. Works even with a uniform. #luckycolor #goodluck #dailyritual",
+   "desc": "10 easy ways to use your lucky color every day, from socks and nail polish to your phone wallpaper. Small ideas that work even with a work uniform."
+  },
+  {
+   "id": "read-palm-basics",
+   "page": "palm-reading-basics",
+   "date": "2026-11-08T12:00:00+03:00",
+   "pinTitle": "Palm Reading for Beginners: The 4 Main Lines",
+   "pinText": "How to find your heart line, head line, life line and fate line, and what each one is said to show about love, thinking, energy and career. A simple beginner's guide to palmistry. #palmreading #palmistry #spiritual",
+   "desc": "Palm reading for beginners: how to find your heart line, head line, life line and fate line, and what each one is said to show about you."
+  },
+  {
+   "id": "read-love-money-career",
+   "page": "lucky-colors-for-love-money-career",
+   "date": "2026-11-08T13:00:00+03:00",
+   "pinTitle": "Lucky Colors for Love, Money and Career",
+   "pinText": "Which color to wear for romance, a raise or a fresh start: pink and red for love, gold and green for money, navy and purple for career. Plus the best day of the week for each. #luckycolors #moneyluck #colormeaning",
+   "desc": "The luckiest colors for love, money and career: which color to wear for romance, a raise or a fresh start, and the best day of the week for each."
+  }
+ ]
 }

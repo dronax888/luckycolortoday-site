@@ -38,6 +38,8 @@ const items = META.map(m => {
 }).sort((a, b) => new Date(b.date) - new Date(a.date));
 
 // ---- shared page parts ----
+const SIGN_LINKS = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'].map(n => `<a href="/zodiac/${n.toLowerCase()}/">${n}</a>`).join(' · ');
+const crumbs = list => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: list.map(([name, item], i) => ({ '@type': 'ListItem', position: i + 1, name, item })) });
 const CSS = fs.readFileSync(path.join(ROOT, 'tools', 'journal.css'), 'utf8');
 const logoSvg = `<svg viewBox="0 0 100 100" aria-hidden="true">${LOGO}</svg>`;
 const head = ({ title, desc, url, img, type, extra = '' }) => `<!DOCTYPE html>
@@ -55,6 +57,8 @@ const head = ({ title, desc, url, img, type, extra = '' }) => `<!DOCTYPE html>
 <meta property="og:url" content="${url}">
 <meta property="og:image" content="${img}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="max-image-preview:large">
+<meta name="theme-color" content="#07060F">
 <link rel="alternate" type="application/rss+xml" title="Lucky Color Today Journal" href="${SITE}/feed.xml">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2748%27 fill=%27%230D0A1C%27 stroke=%27%23E6BE6A%27 stroke-width=%274%27/%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2722%27 fill=%27%23C8233B%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +70,7 @@ ${CSS}</style>
 <body>
 <header class="bar"><div class="wrap">
   <a class="brand" href="/" aria-label="Lucky Color Today home">${logoSvg}<b>Lucky Color Today</b></a>
-  <nav class="links" aria-label="Main"><a href="/">Today's color</a><a href="/#zodiac">Zodiac</a><a href="/journal/">Journal</a></nav>
+  <nav class="links" aria-label="Main"><a href="/">Today's color</a><a href="/zodiac/">Zodiac</a><a href="/journal/">Journal</a></nav>
   <a class="btn btn-gold cta" href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener">Follow us</a>
 </div></header>
 `;
@@ -77,7 +81,8 @@ const follow = `<div class="end-cta glass">
 </div>`;
 const card = (it, i) => `<a class="post" href="/journal/${it.page}/"><div class="art">${art(it.g.hex, it.g.hex2, 'c' + i)}</div><div class="txt"><small>${esc(it.g.tag)}</small><h3>${esc(it.g.title)}</h3><p>${esc(it.g.dek)}</p></div></a>`;
 const foot = `<footer><div class="wrap">
-  <p><a href="/">Today's lucky color</a> · <a href="/journal/">Journal</a> · <a href="/feed.xml">RSS</a> · <a href="mailto:info@luckycolortoday.com">info@luckycolortoday.com</a></p>
+  <p><a href="/">Today's lucky color</a> · <a href="/zodiac/">All zodiac signs</a> · <a href="/journal/">Journal</a> · <a href="/feed.xml">RSS</a> · <a href="mailto:info@luckycolortoday.com">info@luckycolortoday.com</a></p>
+  <p>Lucky number and color today: ${SIGN_LINKS}</p>
   <p class="fine">© ${new Date().getFullYear()} Lucky Color Today. For entertainment and reflection only.</p>
 </div></footer>
 </body>
@@ -86,11 +91,11 @@ const foot = `<footer><div class="wrap">
 
 // ---- article pages ----
 items.forEach((it, i) => {
-  const desc = it.g.dek;
+  const desc = it.desc || it.g.dek;
   const ld = { '@context': 'https://schema.org', '@type': 'Article', headline: it.g.title, description: desc, image: it.img, datePublished: it.date, dateModified: it.date, mainEntityOfPage: it.url, author: { '@type': 'Organization', name: 'Lucky Color Today', url: SITE + '/' }, publisher: { '@type': 'Organization', name: 'Lucky Color Today', url: SITE + '/' } };
   const more = items.filter(x => x !== it).slice(0, 3).map(card).join('');
   const page = head({ title: `${it.g.title} | Lucky Color Today`, desc, url: it.url, img: it.img, type: 'article',
-    extra: `<meta property="article:published_time" content="${it.date}">\n<script type="application/ld+json">${JSON.stringify(ld)}</script>\n` }) +
+    extra: `<meta property="article:published_time" content="${it.date}">\n<script type="application/ld+json">${JSON.stringify(ld)}</script>\n<script type="application/ld+json">${JSON.stringify(crumbs([['Lucky Color Today', SITE + '/'], ['Journal', SITE + '/journal/'], [it.g.title, it.url]]))}</script>\n` }) +
 `<main>
 <div class="hero-art">${art(it.g.hex, it.g.hex2, 'h' + i)}</div>
 <article class="reader-body">
@@ -109,7 +114,8 @@ items.forEach((it, i) => {
 });
 
 // ---- journal index ----
-const indexPage = head({ title: 'The Journal: lucky color guides | Lucky Color Today', desc: 'Guides to lucky colors, zodiac colors, numerology and palm reading from Lucky Color Today.', url: `${SITE}/journal/`, img: items[0].img, type: 'website' }) +
+const indexPage = head({ title: 'The Journal: lucky color guides | Lucky Color Today', desc: 'Free guides to lucky colors, zodiac sign colors, lucky numbers, numerology and palm reading. Learn what your lucky color means and how to use it every day.', url: `${SITE}/journal/`, img: items[0].img, type: 'website',
+  extra: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'The Journal', url: `${SITE}/journal/`, hasPart: items.map(it => ({ '@type': 'Article', headline: it.g.title, url: it.url })) })}</script>\n<script type="application/ld+json">${JSON.stringify(crumbs([['Lucky Color Today', SITE + '/'], ['Journal', SITE + '/journal/']]))}</script>\n` }) +
 `<main class="wrap list">
   <span class="eyebrow">The Journal</span>
   <h1>Guides to lucky colors, signs and numbers</h1>
@@ -153,7 +159,10 @@ if (home === html && !html.includes(jmap)) throw new Error('JPAGE marker missing
 fs.writeFileSync(path.join(ROOT, 'index.html'), home);
 
 // ---- sitemap + robots ----
-const urls = [[`${SITE}/`, new Date().toISOString().slice(0, 10)], [`${SITE}/journal/`, items[0].date.slice(0, 10)], ...items.map(it => [it.url, it.date.slice(0, 10)])];
+// extra pages from tools/build_signs.js (the zodiac pages), if it has been run
+const extraFile = path.join(ROOT, 'tools', 'pages.json');
+const extra = fs.existsSync(extraFile) ? JSON.parse(fs.readFileSync(extraFile, 'utf8')).pages.map(p => [p.url, p.lastmod]) : [];
+const urls = [[`${SITE}/`, new Date().toISOString().slice(0, 10)], ...extra, [`${SITE}/journal/`, items[0].date.slice(0, 10)], ...items.map(it => [it.url, it.date.slice(0, 10)])];
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map(([u, d]) => `<url><loc>${u}</loc><lastmod>${d}</lastmod></url>`).join('\n')}
