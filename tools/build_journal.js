@@ -71,7 +71,7 @@ ${CSS}</style>
 <body>
 <header class="bar"><div class="wrap">
   <a class="brand" href="/" aria-label="Lucky Color Today home">${logoSvg}<b>Lucky Color Today</b></a>
-  <nav class="links" aria-label="Main"><a href="/">Today's color</a><a href="/zodiac/">Zodiac</a><a href="/journal/">Journal</a></nav>
+  <nav class="links" aria-label="Main"><a href="/">Today's color</a><a href="/zodiac/">Zodiac</a><a href="/day/">By day</a><a href="/journal/">Journal</a></nav>
   <a class="btn btn-gold cta" href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener">Follow us</a>
 </div></header>
 `;
@@ -84,6 +84,7 @@ const card = (it, i) => `<a class="post" href="/journal/${it.page}/"><div class=
 const foot = `<footer><div class="wrap">
   <p><a href="/">Today's lucky color</a> · <a href="/zodiac/">All zodiac signs</a> · <a href="/journal/">Journal</a> · <a href="/feed.xml">RSS</a> · <a href="mailto:info@luckycolortoday.com">info@luckycolortoday.com</a></p>
   <p>Lucky number and color today: ${SIGN_LINKS}</p>
+  <p>Lucky color by day: ${['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(d => `<a href="/day/${d.toLowerCase()}/">${d}</a>`).join(' · ')}</p>
   <p class="fine">© ${new Date().getFullYear()} Lucky Color Today. For entertainment and reflection only.</p>
 </div></footer>
 </body>

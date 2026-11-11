@@ -88,7 +88,7 @@ ${CSS}</style>
 <body>
 <header class="bar"><div class="wrap">
   <a class="brand" href="/" aria-label="Lucky Color Today home">${logoSvg}<b>Lucky Color Today</b></a>
-  <nav class="links" aria-label="Main"><a href="/">Today's color</a><a href="/zodiac/">Zodiac</a><a href="/journal/">Journal</a></nav>
+  <nav class="links" aria-label="Main"><a href="/">Today's color</a><a href="/zodiac/">Zodiac</a><a href="/day/">By day</a><a href="/journal/">Journal</a></nav>
   <a class="btn btn-gold cta" href="https://www.instagram.com/luckycolortoday/" target="_blank" rel="noopener">Follow us</a>
 </div></header>
 `;
@@ -102,6 +102,7 @@ const signLinks = (except) => `<div class="signs">${SIGNS.filter(s => s.id !== e
 const foot = `<footer><div class="wrap">
   <p><a href="/">Today's lucky color</a> · <a href="/zodiac/">All zodiac signs</a> · <a href="/journal/">Journal</a> · <a href="/feed.xml">RSS</a> · <a href="mailto:info@luckycolortoday.com">info@luckycolortoday.com</a></p>
   <p>${SIGNS.map(s => `<a href="/zodiac/${s.id}/">${s.name}</a>`).join(' · ')}</p>
+  <p>Lucky color by day: ${['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(d => `<a href="/day/${d.toLowerCase()}/">${d}</a>`).join(' · ')}</p>
   <p class="fine">© ${new Date().getFullYear()} Lucky Color Today. For entertainment and reflection only.</p>
 </div></footer>
 `;
@@ -247,7 +248,151 @@ ${script(null)}
   pages.unshift([url, today]);
 }
 
+// ---- one page per weekday: /day/<weekday>/ and the hub /day/ ----
+// Targets "lucky color for monday", "monday lucky color", "what color to wear on monday" and so on.
+// The weekday's planet, number and 4 rotating shades come from the home page's DAYS table; this week's
+// shade is worked out in the browser with the same luckFor() as the home page, so it always matches.
+const { luckFor } = new Function(`${CLIENT}\nreturn {luckFor};`)();
+const DAY_COPY = {
+  Sunday: { good: 'job interviews, first impressions, sport and anything where you want to be seen', wear: 'a gold watch or jewelry, a yellow scarf, or an amber phone case', avoid: 'a dull, washed-out outfit when you need to stand out' },
+  Monday: { good: 'family time, home projects, rest and listening to your gut', wear: 'a white shirt, silver earrings or a soft grey sweater', avoid: 'loud, clashing colors on a day meant for calm' },
+  Tuesday: { good: 'workouts, hard conversations, deadlines and starting something brave', wear: 'red lipstick, a red tie, red sneakers or a red phone wallpaper', avoid: 'starting an argument just because you feel fired up' },
+  Wednesday: { good: 'meetings, study, writing, sales calls and short trips', wear: 'a green top, a jade bracelet or a green pen for signing', avoid: 'saying yes too fast. Read the details first' },
+  Thursday: { good: 'money matters, asking for a raise, teaching, travel plans and big goals', wear: 'a yellow tie or dress, gold accents, or a yellow note in your wallet', avoid: 'overspending because you feel lucky' },
+  Friday: { good: 'dates, friendships, beauty treatments, shopping and anything creative', wear: 'pink or light blue clothes, a rose quartz, or a pastel bag', avoid: 'people-pleasing at your own cost' },
+  Saturday: { good: 'planning, cleaning up, saving money and work that needs patience', wear: 'a purple or navy outfit, a dark plum nail color or a charcoal coat', avoid: 'rushing. Saturday rewards slow and steady' },
+};
+const dayId = d => d.day.toLowerCase();
+const nextOf = (wd, from) => { const d = new Date(from.getFullYear(), from.getMonth(), from.getDate(), 12); d.setDate(d.getDate() + ((wd - d.getDay() + 7) % 7)); return d; };
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const fmt = d => `${MONTHS[d.getMonth()]} ${d.getDate()}`;
+const dayLinks = (except) => `<div class="signs">${DAYS.map((d, i) => [d, i]).filter(([d]) => d.day !== except).map(([d, i]) =>
+  `<a href="/day/${dayId(d)}/" data-wd="${i}"><b>${d.day}</b><small>${d.planet} · number ${d.num}</small><span class="live"><i style="background:${d.shades[0][1]}"></i><em>${d.shades.map(x => x[0]).slice(0, 2).join(', ')} …</em></span></a>`).join('')}</div>`;
+const dayScript = (wd) => `<script>
+(function(){"use strict";
+${CLIENT}
+const M=${JSON.stringify(MONTHS)},f=d=>M[d.getMonth()]+' '+d.getDate();
+const now=new Date();
+function nextOf(w){const d=new Date(now.getFullYear(),now.getMonth(),now.getDate(),12);d.setDate(d.getDate()+((w-d.getDay()+7)%7));return d;}
+document.querySelectorAll('.signs a[data-wd]').forEach(a=>{const L=luckFor(nextOf(+a.dataset.wd)),l=a.querySelector('.live');l.querySelector('i').style.background=L.hex;l.querySelector('em').textContent=(now.getDay()==+a.dataset.wd?'Today: ':f(nextOf(+a.dataset.wd))+': ')+L.name;});
+${wd === null ? '' : `const W=${wd},first=nextOf(W),L=luckFor(first),sw=document.getElementById('swatch');
+sw.style.background='linear-gradient(135deg,'+L.hex+','+L.hex+'99)';
+document.getElementById('tWhen').textContent=(now.getDay()===W?'Today, ':'This ')+L.day+', '+f(first);
+document.getElementById('tColor').textContent=L.name;
+document.getElementById('tLead').textContent=(now.getDay()===W?'Today':'This '+L.day)+' ('+f(first)+') the lucky color is '+L.name.toLowerCase()+' and the lucky number is '+L.num+'.';
+const rows=[];for(let k=1;k<=4;k++){const d=new Date(first);d.setDate(d.getDate()+7*k);const x=luckFor(d);rows.push('<li><i style="background:'+x.hex+'"></i>'+f(d)+': <b>'+x.name+'</b></li>');}
+document.getElementById('tNext').innerHTML=rows.join('');`}
+})();
+</script>`;
+const DAY_CSS = `<style>.next{list-style:none;padding:0;margin:14px 0}.next li{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}.next i{width:22px;height:22px;border-radius:50%;flex:none}.pal4{grid-template-columns:repeat(4,1fr)}@media (max-width:620px){.pal4{grid-template-columns:repeat(2,1fr)}}</style>`;
+const firstDay = nextOf(0, new Date());
+DAYS.forEach((d, wd) => {
+  const id = dayId(d), url = `${SITE}/day/${id}/`, img = `${SITE}/og.jpg`;
+  const c = DAY_COPY[d.day];
+  const pl = ['Sun', 'Moon'].includes(d.planet) ? 'the ' + d.planet : d.planet, cap = x => x[0].toUpperCase() + x.slice(1);
+  const first = nextOf(wd, new Date()), L0 = luckFor(first);
+  const shades = d.shades.map(x => x[0].toLowerCase());
+  const title = `${d.day} Lucky Color and Lucky Number`;
+  const desc = `What color to wear on ${d.day} for good luck: ${P(pl)} colors, this ${d.day}'s exact shade, lucky number ${d.num} and easy ways to wear it. Updated every week.`;
+  const signsOfPlanet = SIGNS.filter(s => s.ruler === d.planet);
+  const faq = [
+    [`What is the lucky color for ${d.day}?`, `${d.day} is ruled by ${pl}, so its lucky colors are ${shades.slice(0, -1).join(', ')} and ${shades[shades.length - 1]}. One of them is chosen each week; this ${d.day}'s shade is shown at the top of this page.`],
+    [`What is the lucky number for ${d.day}?`, `${d.num}, the number of ${pl}. Your zodiac sign adds its own daily numbers, shown on your sign's page.`],
+    [`What color should I wear on ${d.day}?`, `Wear this week's ${d.day} shade, or any of ${P(pl)} colors. A small touch is enough: ${c.wear}. It goes well with ${d.pair.toLowerCase()}.`],
+    [`What is ${d.day} good for?`, `${d.day} is ${P(pl)} day, linked with ${d.vibe}. It suits ${c.good}.`],
+  ];
+  const ld = [
+    { '@context': 'https://schema.org', '@type': 'WebPage', name: title, description: desc, url, image: img, isPartOf: { '@type': 'WebSite', name: 'Lucky Color Today', url: SITE + '/' } },
+    crumbsLd([['Lucky Color Today', SITE + '/'], ['Lucky color by day', SITE + '/day/'], [d.day, url]]),
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+  ];
+  const page = head({ title: `${title} | Lucky Color Today`, desc, url, img, ld }).replace('</head>', DAY_CSS + '\n</head>') +
+`<main class="wrap list">
+  <p class="crumbs"><a href="/">Home</a> / <a href="/day/">Lucky color by day</a> / ${d.day}</p>
+  <span class="eyebrow">${d.day} · ruled by ${d.planet} · number ${d.num}</span>
+  <h1>${d.day} lucky color and lucky number</h1>
+  <p class="lead" id="tLead">This ${d.day} (${fmt(first)}) the lucky color is ${L0.name.toLowerCase()} and the lucky number is ${d.num}.</p>
+
+  <section class="today" aria-label="${d.day} lucky color">
+    <div class="swatch" id="swatch" style="background:linear-gradient(135deg,${L0.hex},${L0.hex}99);color:${inkOn(L0.hex)}">
+      <small id="tWhen">This ${d.day}, ${fmt(first)}</small>
+      <div><small>Lucky color</small><br><b id="tColor">${L0.name}</b></div>
+      <div><small>Lucky number</small><div class="nums"><span class="main">${d.num}</span></div></div>
+    </div>
+    <div class="card glass">
+      <dl>
+        <dt>Planet</dt><dd>${cap(PLANET_LINE[d.planet])}</dd>
+        <dt>Energy</dt><dd>${d.vibe[0].toUpperCase() + d.vibe.slice(1)}</dd>
+        <dt>Good for</dt><dd>${c.good[0].toUpperCase() + c.good.slice(1)}</dd>
+        <dt>Pairs well with</dt><dd>${d.pair}</dd>
+        <dt>Avoid</dt><dd>${c.avoid[0].toUpperCase() + c.avoid.slice(1)}</dd>
+      </dl>
+    </div>
+  </section>
+  <div class="glass card" style="margin-top:22px"><b>The next four ${d.day}s</b><ul class="next" id="tNext">${[1, 2, 3, 4].map(k => { const x = new Date(first); x.setDate(x.getDate() + 7 * k); const y = luckFor(x); return `<li><i style="background:${y.hex}"></i>${fmt(x)}: <b>${y.name}</b></li>`; }).join('')}</ul></div>
+
+  <article class="prose" style="margin-top:44px">
+    <h2>${P(d.day)} four lucky colors</h2>
+    <p>${d.day} belongs to ${PLANET_LINE[d.planet]}. ${cap(P(pl))} colors are ${shades.slice(0, -1).join(', ')} and ${shades[shades.length - 1]}. We rotate through them, one per week, so every ${d.day} has its own shade but always stays in ${P(pl)} family.</p>
+    <div class="pal pal4">${d.shades.map(([n, h]) => `<div style="background:${h};color:${inkOn(h)}">${n}</div>`).join('')}</div>
+    <h2>What to wear on ${d.day} for good luck</h2>
+    <p>You don't need a whole outfit. One clear touch of the color is enough: ${c.wear}. ${d.pair} is ${P(d.day)} partner color, so it is a safe match if you want to wear two colors.</p>
+    <h2>What ${d.day} is good for</h2>
+    <p>${cap(P(pl))} energy is ${d.vibe}. That makes ${d.day} a good day for ${c.good}. Try to avoid ${c.avoid.replace(/\. .*/, '')}.</p>
+    <h2>Lucky number ${d.num}</h2>
+    <p>${d.num} is ${P(pl)} number. Use it for small choices on ${d.day}: a seat, a locker, the time you send an important message (for example at ${d.num}:${d.num < 10 ? '0' + d.num : d.num}), or the number of minutes you spend on a short break.</p>
+    ${signsOfPlanet.length ? `<h2>Signs that feel lucky on ${d.day}</h2><p>${d.day} is the power day of ${signsOfPlanet.map(s => `<a href="/zodiac/${s.id}/">${s.name}</a>`).join(' and ')}, because ${pl} rules ${signsOfPlanet.length > 1 ? 'both signs' : 'that sign'}. On ${d.day}s the color of the day is doubly lucky for ${signsOfPlanet.length > 1 ? 'them' : s0(signsOfPlanet)}.</p>` : ''}
+    <p>Want your personal color for today? See <a href="/">today's lucky color</a>, pick your sign on the <a href="/zodiac/">zodiac page</a>, or read <a href="/journal/lucky-color-for-each-day-of-the-week/">why every day of the week has its own lucky color</a>.</p>
+  </article>
+
+  <section class="faq" aria-labelledby="faq-h"><h2 id="faq-h" style="font-family:var(--display);margin-top:40px">${d.day} lucky color: questions</h2>
+    ${faq.map(([q, a], i) => `<details class="glass"${i ? '' : ' open'}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('\n    ')}
+  </section>
+
+  <h2 style="font-family:var(--display);margin-top:48px">Lucky colors for the other days</h2>
+  ${dayLinks(d.day)}
+  ${follow}
+</main>
+${dayScript(wd)}
+` + foot;
+  fs.mkdirSync(path.join(ROOT, 'day', id), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'day', id, 'index.html'), page);
+  pages.push([url, today]);
+});
+function s0(list) { return list[0].name; }
+{
+  const url = `${SITE}/day/`, img = `${SITE}/og.jpg`;
+  const title = 'Lucky Color for Each Day of the Week';
+  const desc = 'What color to wear each day of the week for good luck, from Sunday gold to Saturday purple, with each day\'s lucky number and this week\'s exact shades.';
+  const order = [1, 2, 3, 4, 5, 6, 0];
+  const ld = [
+    { '@context': 'https://schema.org', '@type': 'CollectionPage', name: title, description: desc, url, image: img, hasPart: DAYS.map(d => ({ '@type': 'WebPage', name: `${d.day} Lucky Color and Lucky Number`, url: `${SITE}/day/${dayId(d)}/` })) },
+    crumbsLd([['Lucky Color Today', SITE + '/'], ['Lucky color by day', url]]),
+  ];
+  const page = head({ title: `${title} | Lucky Color Today`, desc, url, img, ld }) +
+`<main class="wrap list">
+  <p class="crumbs"><a href="/">Home</a> / Lucky color by day</p>
+  <span class="eyebrow">Monday to Sunday</span>
+  <h1>Lucky color for each day of the week</h1>
+  <p class="lead">Every day of the week is ruled by one of the seven classical planets, and each planet has its own colors and number. Pick a day to see its lucky colors, its number and this week's exact shade.</p>
+  ${dayLinks(null)}
+  <article class="prose" style="margin-top:44px">
+    <h2>The weekly color chart</h2>
+    <div class="tw"><table><thead><tr><th>Day</th><th>Planet</th><th>Lucky colors</th><th>Number</th></tr></thead><tbody>
+    ${order.map(i => DAYS[i]).map(d => `<tr><td><a href="/day/${dayId(d)}/">${d.day}</a></td><td>${d.planet}</td><td>${d.shades.map(x => x[0]).join(', ')}</td><td>${d.num}</td></tr>`).join('\n    ')}
+    </tbody></table></div>
+    <p>Each week we use one shade from each day's family, so the colors rotate every four weeks. Your zodiac sign adds its own twist: see your <a href="/zodiac/">sign's lucky color and number today</a>, or read the full story in <a href="/journal/lucky-color-for-each-day-of-the-week/">why every day of the week has its own lucky color</a>.</p>
+  </article>
+  ${follow}
+</main>
+${dayScript(null)}
+` + foot;
+  fs.mkdirSync(path.join(ROOT, 'day'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, 'day', 'index.html'), page);
+  pages.push([url, today]);
+}
+
 fs.writeFileSync(path.join(ROOT, 'tools', 'pages.json'), JSON.stringify({ _about: 'Extra pages made by tools/build_signs.js. build_journal.js adds them to sitemap.xml.', pages: pages.map(([url, lastmod]) => ({ url, lastmod })) }, null, 1) + '\n');
-console.log(`Built zodiac/index.html and ${SIGNS.length} sign pages; wrote tools/pages.json`);
+console.log(`Built zodiac/index.html, ${SIGNS.length} sign pages, day/index.html and 7 day pages; wrote tools/pages.json`);
 
 function inkOn(hex) { const c = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255).map(v => v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4)); return .2126 * c[0] + .7152 * c[1] + .0722 * c[2] > .42 ? '#1A1426' : '#FFFFFF'; }
