@@ -147,7 +147,7 @@ SIGNS.forEach(s => {
   const mates = SIGNS.filter(x => x.element === s.element && x.id !== s.id);
   const [c1, c2, c3] = s.palette;
   const title = `${s.name} Lucky Number and Lucky Color Today`;
-  const desc = `${s.name} lucky number and lucky color for today, new every midnight. Plus ${P(s.name)} daily horoscope for love and money, lucky hours and 3 signature colors.`;
+  const desc = `${s.name} lucky number and lucky color for today, new daily. Plus ${P(s.name)} daily horoscope for love and money, lucky hours and 3 signature colors.`;
   const faq = [
     [`What is ${P(s.name)} lucky number today?`, `It changes every day. The number at the top of this page is today's main lucky number for ${s.name}, with two more numbers to watch for. It updates at midnight on your own clock.`],
     [`What is ${P(s.name)} lucky color today?`, `Today's color for ${s.name} is shown in the big color card above. On ${pd.day}s, the day ruled by ${s.ruler}, the color of the day is doubly lucky for ${s.name}.`],
